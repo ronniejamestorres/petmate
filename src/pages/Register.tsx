@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import LoginForm from "../components/LoginForm";
+import SubscribeOne from "../components/SubscribeOne";
 
-const Login = () => {
+const Register = () => {
   return (
     <div className="bg-orange rounded-3xl ">
       <div className="flex-1 bg-beige">
         <div id="" className=" h-screen flex items-center justify-center">
-          <div id="" className="">
+          <div id="" className="flex items-center justify-center">
             <div>
-              <LoginForm />
+              <SubscribeOne />
             </div>
           </div>
         </div>
@@ -17,4 +17,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
