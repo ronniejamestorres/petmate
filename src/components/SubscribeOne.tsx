@@ -66,16 +66,14 @@ const SubscribeOne = () => {
   return (
     <div className="bg-white rounded-3xl p-4 flex flex-col items-center justify-center">
       <form onSubmit={handleSubscribeOne} className="px-auto">
-        <div className="mb-4">
+        <div className="m-4">
           <div className="flex font-bold mb-4 items-center justify-center text-xl ">
             REGISTER
           </div>
           <label
             className="block color-dark-grey font-mulish tracking-wide font-bold antialiased text-opacity-90 mb-2 pl-1"
             htmlFor="email"
-          >
-            Email
-          </label>
+          ></label>
           <input
             className="appearance-none border border-danger rounded w-full py-2 px-3 text-grey-700 leading-tight focus:outline-none focus:shadow-outline"
             id="email"
@@ -89,14 +87,12 @@ const SubscribeOne = () => {
           <label
             className="block color-dark-grey font-mulish tracking-wide font-bold antialiased text-opacity-90 mb-2 pl-1"
             htmlFor="username"
-          >
-            Choose a username
-          </label>
+          ></label>
           <input
             className="appearance-none border border-danger rounded w-full py-2 px-3 text-grey-700 leading-tight focus:outline-none focus:shadow-outline"
             id="username"
             type="username"
-            placeholder="Username"
+            placeholder="Choose a username"
             value={username}
             onChange={handleUserInput}
           ></input>
@@ -105,14 +101,12 @@ const SubscribeOne = () => {
           <label
             className="block color-dark-grey font-mulish tracking-wide font-bold antialiased text-opacity-90 mb-2 pl-1"
             htmlFor="password"
-          >
-            Choose a password
-          </label>
+          ></label>
           <input
             className="appearance-none border border-danger rounded w-full py-2 px-3 text-grey-700 leading-tight focus:outline-none focus:shadow-outline"
             id="password"
             type="password"
-            placeholder="Password"
+            placeholder="Choose a password"
             value={password}
             onChange={handlePasswordInput}
           ></input>
@@ -136,8 +130,8 @@ const SubscribeOne = () => {
       <div className="flex flex-col pt-4 pb-4">
         <Button
           onClick={handleSubscribeOne}
-          id="longTextButton"
-          className="w-44 h-8 items-center mt-2 mb-4 mx-auto"
+          id=""
+          className="bg-purewhite hover:bg-grey  rounded-full w-44 h-10 items-center "
           text="NEXT"
           type="submit"
           disabled={!isChecked}
