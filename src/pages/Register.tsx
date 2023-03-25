@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import SubscribeOne from "../components/SubscribeOne";
 import Logo from "../components/Logo";
 
