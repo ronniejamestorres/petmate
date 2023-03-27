@@ -66,30 +66,32 @@ const SubscribeOne = () => {
   return (
     <div className="bg-white rounded-3xl p-4 flex flex-col items-center justify-center">
       <form onSubmit={handleSubscribeOne} className="px-auto">
-        <div className="m-4">
-          <div className="flex font-bold mb-4 items-center justify-center text-xl ">
-            REGISTER
-          </div>
+        <div className="flex font-bold mb-4 items-center justify-center text-xl ">
+          REGISTER
+        </div>
+
+        <div className="mb-4">
           <label
             className="block color-dark-grey font-mulish tracking-wide font-bold antialiased text-opacity-90 mb-2 pl-1"
             htmlFor="email"
           ></label>
           <input
-            className="appearance-none border border-danger rounded w-full py-2 px-3 text-grey-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="rounded-full appearance-none border border-danger  w-full py-2 px-3 text-grey-700 leading-tight focus:outline-none focus:shadow-outline"
             id="email"
             type="email"
             placeholder="Email"
             value={email}
-            onChange={handleEmailInput}
+            onChange={handleUserInput}
           ></input>
         </div>
+
         <div className="mb-4">
           <label
             className="block color-dark-grey font-mulish tracking-wide font-bold antialiased text-opacity-90 mb-2 pl-1"
             htmlFor="username"
           ></label>
           <input
-            className="appearance-none border border-danger rounded w-full py-2 px-3 text-grey-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="appearance-none border border-danger rounded-full w-full py-2 px-3 text-grey-700 leading-tight focus:outline-none focus:shadow-outline"
             id="username"
             type="username"
             placeholder="Choose a username"
@@ -103,7 +105,7 @@ const SubscribeOne = () => {
             htmlFor="password"
           ></label>
           <input
-            className="appearance-none border border-danger rounded w-full py-2 px-3 text-grey-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="appearance-none border border-danger rounded-full w-full py-2 px-3 text-grey-700 leading-tight focus:outline-none focus:shadow-outline"
             id="password"
             type="password"
             placeholder="Choose a password"
