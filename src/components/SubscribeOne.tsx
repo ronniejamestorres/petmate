@@ -7,7 +7,7 @@ const SubscribeOne = () => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [errorString, setErrorString] = useState("");
+  const [errorString, setErrorString] = useState("Please accept the terms and conditions.");
   const [isChecked, setIsChecked] = useState(false);
 
   const NavigateTo = useNavigate();
@@ -37,14 +37,14 @@ const SubscribeOne = () => {
       return;
     } else {
       axiosInstance
-        .post("/user/register", {
+        .post("/users/register", {
           email: email,
           username: username,
           password: password,
         })
         .then((response) => {
           console.log(response);
-          NavigateTo("/");
+          NavigateTo("/login");
         })
         .catch((error) => {
           console.log(error.message);
@@ -57,10 +57,13 @@ const SubscribeOne = () => {
 
   const handleCheck = () => {
     setIsChecked(!isChecked);
-    const errorMsg = document.getElementById("needAccept");
-    if (errorMsg) {
-      errorMsg.style.display = !isChecked ? "none" : "block";
+    if (isChecked) {
+      setErrorString("Please accept the terms and conditions.");
     }
+    else {
+      setErrorString("");
+    }
+    
   };
 
   return (
@@ -81,7 +84,7 @@ const SubscribeOne = () => {
             type="email"
             placeholder="Email"
             value={email}
-            onChange={handleUserInput}
+            onChange={handleEmailInput}
           ></input>
         </div>
 
@@ -140,15 +143,15 @@ const SubscribeOne = () => {
         />
       </div>
       <div>
-        <p className="text-center text-orange font-bold text-sm font-raleway mx-4">
-          {errorString}
-        </p>
         <p
           id="needAccept"
           className="text-center text-orange font-bold text-sm font-raleway mx-4"
         >
-          Please accept the terms and conditions.
+          {errorString}
         </p>
+        {/* <p className="text-center text-orange font-bold text-sm font-raleway mx-4">
+          {errorString}
+        </p> */}
       </div>
     </div>
   );

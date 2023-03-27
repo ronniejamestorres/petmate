@@ -11,7 +11,7 @@ const LoginForm = () => {
   const Navigate = useNavigate();
 
   const axiosInstance = axios.create({
-    baseURL: "https://fullstacksoundwave.herokuapp.com",
+    baseURL: "http://wave.nodestarter.eu:4000",
     timeout: 5000,
     headers: { "X-Custom-Header": "value" },
   });
@@ -31,21 +31,21 @@ const LoginForm = () => {
       return;
     } else {
       axiosInstance
-        .post("/user/login", {
+        .post("/users/login", {
           username: username,
           password: password,
         })
         .then((response) => {
           //login successful
           console.log("set token inside local storage");
-          localStorage.setItem("token", response.data.token);
-          console.log(localStorage.getItem("token"));
+          localStorage.setItem("x-auth-token", response.data.token);
+          console.log(localStorage.getItem("x-auth-token"));
           setErrorString("Success");
           Navigate("/ShowAll");
         })
         .catch((error) => {
           //login failed
-          localStorage.setItem("token", error.response.data.message);
+          localStorage.setItem("x-auth-token", error.response.data.message);
           console.log(error.response.data.message);
           setErrorString(error.response.data.message);
         });
