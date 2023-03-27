@@ -13,7 +13,7 @@ function Cards() {
             name: "Toby",
             age: 5,
             breed: "Bulldog",
-            url:"https://images.unsplash.com/photo-1601245381370-4056f3f47526?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+            url:"https://images.unsplash.com/photo-1601245381370-4056f3f47526?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
             
         },
         {
@@ -50,6 +50,8 @@ function Cards() {
             style={{backgroundImage:`url(${user.url})`}}
             >
                 <h3>{user.name}</h3>
+                <h3>{user.age}</h3>
+                <h3>{user.breed}</h3>
             </div>
         </CardUser>
     

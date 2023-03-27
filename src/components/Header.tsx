@@ -5,7 +5,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import ChatIcon from '@mui/icons-material/Chat';
 
 import { IconButton } from '@mui/material';
-import image1 from '../images/logo.png'
+import image1 from '../images/petmate-symbol-01.svg'
 import {Link } from 'react-router-dom'
 /*import axios from 'axios';*/
 
@@ -31,7 +31,7 @@ console.log(user)*/}
 
   return (
   
-    <div className="flex justify-between items-center border-b border-gray-400 pb-2 bg-orange ">
+    <div className="flex justify-between items-center border-b border-gray-400 pb-2 bg-beige3 ">
 
       <Link to="/dashboard">
         <IconButton>
