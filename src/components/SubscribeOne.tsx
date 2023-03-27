@@ -13,7 +13,7 @@ const SubscribeOne = () => {
   const NavigateTo = useNavigate();
 
   const axiosInstance = axios.create({
-    baseURL: "https://fullstacksoundwave.herokuapp.com",
+    baseURL: "http://wave.nodestarter.eu:4000",
     timeout: 5000,
     headers: { "X-Custom-Header": "value" },
   });
@@ -44,7 +44,7 @@ const SubscribeOne = () => {
         })
         .then((response) => {
           console.log(response);
-          NavigateTo("/SubscribePay");
+          NavigateTo("/");
         })
         .catch((error) => {
           console.log(error.message);

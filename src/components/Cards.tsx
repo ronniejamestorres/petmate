@@ -1,8 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import CardUser from 'react-tinder-card'
 import '../components/cards.css'
+import axios from 'axios';
 
 function Cards() {
+
+ 
+
 
     const [user,setUser] = useState([
         {
@@ -20,6 +24,16 @@ function Cards() {
         }
 
     ]);
+
+    useEffect(() => {
+        axios.get('http://wave.nodestarter.eu:4000/users/getall')
+        .then((res) => {
+            console.log(res.data)
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    }, [])
 
   return (
     <>
