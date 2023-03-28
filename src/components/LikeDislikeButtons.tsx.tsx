@@ -8,14 +8,16 @@ import { IconButton } from '@mui/material';
 function LikeDislikeButtons() {
   return (
     
-    <div className='flex w-full fixed bottom-10 justify-evenly left-0 p-9'>
+    <div className='flex w-full fixed bottom-8 justify-evenly py-48'>
+    
     <IconButton>
-          <PetsIcon />
+          <PetsIcon fontSize='large'/>
     </IconButton>
 
     <IconButton>
-          <CloseIcon  />
+          <CloseIcon fontSize='large'/>
     </IconButton>
+
     </div>
     
    
