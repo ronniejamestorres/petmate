@@ -1,11 +1,25 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
-import Intro from "./pages/Intro";
+import LandingPage from "./pages/LandingPage";
+import ShowAll from "./pages/ShowAll";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Dashboard from "./pages/Dashboard";
+
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
-  return <Intro />;
+  return (
+    <Router>
+      <div>
+        <Routes>
+          <Route path="/" element={<LandingPage />}></Route>
+          <Route path="/Login" element={<Login />}></Route>
+          <Route path="/ShowAll" element={<ShowAll />}></Route>
+          <Route path="/Register" element={<Register />}></Route>
+          <Route path="/Dashboard" element={<Dashboard />}></Route>
+        </Routes>
+      </div>
+    </Router>
+  );
 }
 
 export default App;
