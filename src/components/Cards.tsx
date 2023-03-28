@@ -5,16 +5,27 @@ import axios from 'axios';
 
 function Cards() {
 
+    const [pets, setPets] = useState([])
+
+    useEffect(() => {
+      axios.get('http://localhost:4000/users/getall')
+        .then((res) => {
+            setPets(res.data)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    }, [])
+  
+    console.log(pets)
+
  
-
-
     const [user,setUser] = useState([
         {
-            name: "Toby",
-            age: 5,
+            name: "bert",
+            age: 3,
             breed: "Bulldog",
             url:"https://images.unsplash.com/photo-1601245381370-4056f3f47526?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
-            
         },
         {
             name: "Honey",
@@ -25,44 +36,28 @@ function Cards() {
 
     ]);
 
-    useEffect(() => {
-        axios.get('http://wave.nodestarter.eu:4000/users/getall')
-        .then((res) => {
-            console.log(res.data)
-        })
-        .catch((err) => {
-            console.log(err)
-        })
-    }, [])
 
   return (
     <>
     <div className='cardPet'>
         <div className='cardPet__container'>
-    {user.map(user => (
-        <CardUser
-        className='swipe'
-        key={user.name}
-        preventSwipe={['up','down']}
-        >
-            <div 
-            className='card'
-            style={{backgroundImage:`url(${user.url})`}}
+            {user.map(user => (
+            <CardUser
+            className='swipe'
+            key={user.name}
+            preventSwipe={['up','down']}
             >
-                <h3>{user.name}</h3>
-                <h3>{user.age}</h3>
-                <h3>{user.breed}</h3>
-            </div>
-        </CardUser>
-    
-
-
-        
-    
-        
-        
-    ))}
-    </div>
+                <div 
+                className='card flex '
+                style={{backgroundImage:`url(${user.url})`}}
+                >   
+                    <h3 className=' text-3xl'>{user.name}</h3>
+                    <p> {user.age} </p>
+                    <h1>{user.breed}</h1>
+                </div>
+            </CardUser>  
+            ))}
+        </div>
     </div>
     </>
 

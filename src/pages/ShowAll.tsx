@@ -6,7 +6,11 @@ import LikeDislikeButtons from '../components/LikeDislikeButtons.tsx';
 import backgroundImage from '../images/petmate-background-01.svg'
 
 
+
 function ShowAll() {
+
+ 
+
   if (localStorage.getItem('x-auth-token') === null) {
     window.location.href = '/login'
   }

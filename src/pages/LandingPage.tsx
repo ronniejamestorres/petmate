@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import backgroundImage from '../images/petmate-background-01.svg'
 import logoImage from '../images/petmate-newlogo-01.svg'
 import Image from '../images/pets.svg'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 function LandingPage() {
 
   const navigate = useNavigate()
