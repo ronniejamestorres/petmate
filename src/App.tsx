@@ -15,7 +15,12 @@ function App() {
           <Route path="/Login" element={<Login />}></Route>
           <Route path="/ShowAll" element={<ShowAll />}></Route>
           <Route path="/Register" element={<Register />}></Route>
-          <Route path="/Dashboard" element={<Dashboard />}></Route>
+          <Route
+            path="/Dashboard"
+            element={
+              <Dashboard onPictureAdded={() => console.log("Picture added")} />
+            }
+          ></Route>
         </Routes>
       </div>
     </Router>
