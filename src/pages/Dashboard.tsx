@@ -121,7 +121,7 @@ const Dashboard: React.FC<Props> = ({ onPictureAdded }) => {
                 <img
                   src={URL.createObjectURL(picture)}
                   alt="Preview"
-                  style={{ maxHeight: "50px", minWidth: "100%" }}
+                  style={{ maxHeight: "100px", minWidth: "100%" }}
                 />
                 <button
                   className="bg-beige1 rounded-full w-20 h-8 m-2 items-center"
