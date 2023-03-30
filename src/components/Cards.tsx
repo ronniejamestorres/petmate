@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useMemo, useRef,useEffect } from 'react'
 import CardUser from 'react-tinder-card'
 import '../components/cards.css'
 import axios from 'axios';
@@ -24,9 +24,9 @@ function Cards() {
         }
 
     ]);
-
+    
     useEffect(() => {
-        axios.get('http://wave.nodestarter.eu:4000/users/getall')
+        axios.get('http://localhost:4000/users/getall')
         .then((res) => {
             console.log(res.data)
         })
@@ -49,9 +49,9 @@ function Cards() {
             className='card'
             style={{backgroundImage:`url(${user.url})`}}
             >
+                
                 <h3>{user.name}</h3>
-                <h3>{user.age}</h3>
-                <h3>{user.breed}</h3>
+                
             </div>
         </CardUser>
     

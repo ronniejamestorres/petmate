@@ -6,7 +6,7 @@ import backgroundImage from "../../public/petmate-background-01.svg";
 const Login = () => {
   return (
     <div
-      className="h-screen bg-center bg-no-repeat bg-cover"
+      className="h-screen bg-center bg-no-repeat bg-cover bg-beige1"
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <div className=" h-screen ">
