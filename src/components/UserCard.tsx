@@ -3,31 +3,29 @@ import axios from "axios";
 
 const UserCard = ({ user }) => {
   const [imageDataURL, setImageDataURL] = useState("");
-
+  console.log(user.pictures[0 ]);
   useEffect(() => {
     const fetchPictures = async (path) => {
       try {
         const res = await axios.post(
           "http://localhost:4000/users/getPicture",
           {
-            picture: "C:\BeCode\petMateBackend\uploads\dante\1680086412008-hamster.jpg", //path
+            picture: "C:\\becode\\PetMate-Backend\\uploads\\mike\\1680007648176-20211117_223534.jpg", //path
           },
           { responseType: "arraybuffer" }
         );
-        console.log(path);
-        const contentType = res.headers["content-type"];
-        const imageDataURL = `data:${contentType};base64,${Buffer.from(
-          res.data,
-          "binary"
-        ).toString("base64")}`;
-        setImageDataURL(imageDataURL);
-        console.log(imageDataURL);
+       
+        const blob = new Blob([res.data], { type: res.headers["content-type"] });
+        const url = URL.createObjectURL(blob);
+        console.log(url);
+        setImageDataURL(url);
+
       } catch (err) {
         console.log(err);
       }
     };
 
-    fetchPictures("ok");
+    fetchPictures("i have hardcoded a picture path");
 
     // if (user.pictures && user.pictures.lenght > 0) {
     //   fetchPictures(user.pictures[0]);
