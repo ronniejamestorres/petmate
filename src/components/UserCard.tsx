@@ -21,7 +21,6 @@ const UserCard = ({ user }) => {
           type: res.headers["content-type"],
         });
         const url = URL.createObjectURL(blob);
-        console.log(url);
         setImageDataURL(url);
       } catch (err) {
         console.log(err);
