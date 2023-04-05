@@ -3,7 +3,7 @@ import axios from "axios";
 
 const CardsContext = createContext({
   user: [],
-  lastDirection: null,
+  lastDirection: "",
   swiped: () => {},
   outOfFrame: () => {},
 });
