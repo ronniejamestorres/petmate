@@ -10,17 +10,18 @@ const CardsContext = createContext({
 
 export const CardsProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
+  const [loggedInUser, setLoggedInUser] = useState([]);
   const [lastDirection, setLastDirection] = useState();
-
-  const loggedIn = localStorage.getItem("loggedIn");
 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
         const res = await axios.get("http://localhost:4000/users/getall");
         setUsers(res.data);
-        const loggedInUser = res.data.filter((ele) => ele._id === loggedIn)[0];
-        console.log("logged in user ", loggedInUser);
+        const logged = res.data.filter(
+          (ele) => ele._id === localStorage.getItem("loggedIn")
+        )[0];
+        setLoggedInUser(logged);
       } catch (err) {
         console.log(err);
       }
@@ -49,7 +50,9 @@ export const CardsProvider = ({ children }) => {
   };
 
   return (
-    <CardsContext.Provider value={{ users, lastDirection, swiped, outOfFrame }}>
+    <CardsContext.Provider
+      value={{ users, loggedInUser, lastDirection, swiped, outOfFrame }}
+    >
       {children}
     </CardsContext.Provider>
   );
