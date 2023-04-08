@@ -60,7 +60,7 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="bg-white rounded-3xl p-4 flex flex-col items-center justify-center">
+    <div className="bg-beige3 rounded-3xl p-4 flex flex-col items-center justify-center">
       <form onSubmit={handleLogin} className="px-auto">
         <div className="mb-4">
           <div className="flex font-bold mb-4 items-center justify-center text-xl ">
