@@ -37,8 +37,9 @@ const LoginForm = () => {
         })
         .then((response) => {
           //login successful
-          console.log("set token inside local storage");
+          localStorage.setItem("userId", response.data._id);
           localStorage.setItem("x-auth-token", response.data.token);
+          localStorage.setItem("username", username);
           console.log(localStorage.getItem("x-auth-token"));
           setErrorString("Success");
           Navigate("/ShowAll");
