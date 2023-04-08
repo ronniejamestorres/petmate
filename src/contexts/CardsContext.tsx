@@ -10,18 +10,16 @@ const CardsContext = createContext({
 
 export const CardsProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
-  const [loggedInUser, setLoggedInUser] = useState([]);
+  const [loggedInUser, setLoggedInUser] = useState({});
   const [lastDirection, setLastDirection] = useState();
+  const [swipedUser, setSwipedUser] = useState({});
+  const [match, setMatch] = useState(false);
 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
         const res = await axios.get("http://localhost:4000/users/getall");
         setUsers(res.data);
-        const logged = res.data.filter(
-          (ele) => ele._id === localStorage.getItem("loggedIn")
-        )[0];
-        setLoggedInUser(logged);
       } catch (err) {
         console.log(err);
       }
@@ -29,9 +27,27 @@ export const CardsProvider = ({ children }) => {
     fetchUsers();
   }, []);
 
+  useEffect(() => {
+    const fetchLoggedInUser = async () => {
+      try {
+        const res = await axios.get(
+          `http://localhost:4000/users/getone/${localStorage.getItem(
+            "loggedIn"
+          )}`
+        );
+        setLoggedInUser(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchLoggedInUser();
+  }, []);
+
   const swiped = (direction, idSwiped) => {
     console.log(`swiped ${idSwiped} to the ${direction}`);
     setLastDirection(direction);
+    const swiped = users.filter((user) => user._id === idSwiped);
+    setSwipedUser(swiped[0]);
     if (direction === "right") {
       axios.post(
         `http://localhost:4000/users/like/${idSwiped}`,
@@ -42,6 +58,11 @@ export const CardsProvider = ({ children }) => {
           },
         }
       );
+      if (swiped[0].liking.includes(loggedInUser._id)) {
+        setMatch(true);
+      } else {
+        setMatch(false);
+      }
     }
   };
 
@@ -51,7 +72,15 @@ export const CardsProvider = ({ children }) => {
 
   return (
     <CardsContext.Provider
-      value={{ users, loggedInUser, lastDirection, swiped, outOfFrame }}
+      value={{
+        users,
+        loggedInUser,
+        lastDirection,
+        swiped,
+        outOfFrame,
+        swipedUser,
+        match,
+      }}
     >
       {children}
     </CardsContext.Provider>
