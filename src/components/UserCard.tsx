@@ -43,7 +43,7 @@ const UserCard = ({ user }) => {
         backgroundImage: `url(${imageDataURL})`,
       }}
     >
-      <h3 className="text-3xl font-extrabold">{user.username}</h3>
+      <h3 className="text-xl text-dark font-extrabold">{user.username}</h3>
     </div>
   );
 };
