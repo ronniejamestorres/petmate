@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "../components/Header";
 import Cards from "../components/Cards";
-import LikeDislikeButtons from "../components/LikeDislikeButtons.tsx";
 import backgroundImage from "../images/petmate-background-01.svg";
 import SwipeResult from "../components/SwipeResult";
 
@@ -17,7 +16,6 @@ function ShowAll() {
     >
       <Header />
       <Cards />
-      <LikeDislikeButtons />
       <SwipeResult />
     </div>
   );

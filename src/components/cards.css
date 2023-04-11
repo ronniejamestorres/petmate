@@ -2,7 +2,7 @@
   position: relative;
   width: 600px;
   padding: 20px;
-  max-width: 85vw;
+  max-width: 60vw;
   height: 50vh;
   background-size: cover;
   background-position: center;
@@ -28,4 +28,31 @@
     position: absolute;
 
 }
+
+/* Pour les écrans d'iPad en mode paysage et portrait */
+@media (min-width: 768px) {
+.card {
+    width: 350px;
+    max-width: 60vw;
+    height: 50vh;
+      
+    
+  }
+
+  
+}
+
+/* Pour les écrans d'ordinateur de bureau et d'ordinateur portable */
+@media (min-width: 1024px) {
+    .card {
+      width: 300px;
+      max-width: 30vw;
+      height: 50vh;
+      
+      
+    }
+  
+    
+  }
+  
   
