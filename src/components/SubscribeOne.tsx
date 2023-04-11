@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Button from "../components/Button";
 import { useNavigate } from "react-router";
 import axios from "axios";
+import { Email } from "@mui/icons-material";
 
 const SubscribeOne = () => {
   const [email, setEmail] = useState("");
@@ -66,8 +67,24 @@ const SubscribeOne = () => {
     }
   };
 
+  const emailClassName = email
+    ? errorString
+      ? "border-red-500"
+      : "border-green-500"
+    : "";
+  const usernameClassName = username
+    ? errorString
+      ? "border-red-500"
+      : "border-green-500"
+    : "";
+  const passwordClassName = password
+    ? errorString
+      ? "border-red-500"
+      : "border-green-500"
+    : "";
+
   return (
-    <div className="bg-beige3 rounded-3xl p-4 flex flex-col items-center justify-center">
+    <div className=" rounded-3xl p-4 flex flex-col items-center justify-center">
       <form onSubmit={handleSubscribeOne} className="px-auto">
         <div className="flex font-bold mb-4 items-center justify-center text-xl ">
           REGISTER
@@ -79,7 +96,7 @@ const SubscribeOne = () => {
             htmlFor="email"
           ></label>
           <input
-            className="rounded-full appearance-none border border-danger  w-full py-2 px-3 text-grey-700 leading-tight focus:outline-none focus:shadow-outline"
+            className={`rounded-full appearance-none border border-danger  w-full py-2 px-3 text-grey-700 leading-tight focus:outline-none focus:shadow-outline ${emailClassName}`}
             id="email"
             type="email"
             placeholder="Email"
@@ -94,7 +111,7 @@ const SubscribeOne = () => {
             htmlFor="username"
           ></label>
           <input
-            className="appearance-none border border-danger rounded-full w-full py-2 px-3 text-grey-700 leading-tight focus:outline-none focus:shadow-outline"
+            className={`appearance-none border border-danger rounded-full w-full py-2 px-3 text-grey-700 leading-tight focus:outline-none focus:shadow-outline ${usernameClassName}`}
             id="username"
             type="username"
             placeholder="Choose a username"
@@ -108,7 +125,7 @@ const SubscribeOne = () => {
             htmlFor="password"
           ></label>
           <input
-            className="appearance-none border border-danger rounded-full w-full py-2 px-3 text-grey-700 leading-tight focus:outline-none focus:shadow-outline"
+            className={`appearance-none border border-danger rounded-full w-full py-2 px-3 text-grey-700 leading-tight focus:outline-none focus:shadow-outline ${passwordClassName}`}
             id="password"
             type="password"
             placeholder="Choose a password"
@@ -136,7 +153,7 @@ const SubscribeOne = () => {
         <Button
           onClick={handleSubscribeOne}
           id=""
-          className="bg-beige1 hover:bg-grey  rounded-full w-44 h-10 items-center "
+          className="bg-orange hover:bg-grey  rounded-full w-44 h-10 items-center "
           text="NEXT"
           type="submit"
           disabled={!isChecked}
