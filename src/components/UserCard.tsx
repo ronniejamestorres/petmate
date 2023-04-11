@@ -9,7 +9,7 @@ const UserCard = ({ user }) => {
     const fetchPictures = async (path) => {
       try {
         const res = await axios.post(
-          "http://localhost:4000/users/getPicture",
+          "http://wave.nodestarter.eu/users/getPicture",
           {
             picture: path, //path of the picture stored on the server
           },
