@@ -5,14 +5,14 @@ import "../App.css";
 function Testimonials() {
   return (
     <section
-      className="bg-beige1 text-black"
+      className="bg-beige1 text-beige3"
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <div className=" px-6 py-12 mx-auto">
         <div className="grid items-center gap-4 xl:grid-cols-5">
           <div className="max-w-2xl mx-auto my-8 space-y-4 text-center xl:col-span-2 xl:text-left">
             <h2 className="text-4xl font-bold">What People Think About?</h2>
-            <p className="text-black">
+            <p className="text-gray-700">
               Our app has been designed with the aim of helping pet owners
               connect with other pet owners and provide their furry friends with
               a fun and social experience. Here are some of the things our users
@@ -22,7 +22,7 @@ function Testimonials() {
           <div className="p-6 xl:col-span-3">
             <div className="grid gap-4 md:grid-cols-2">
               <div className="grid content-center gap-4">
-                <div className="p-6 rounded shadow-md bg-beige2">
+                <div className="p-6 rounded shadow-md bg-beige2 text-gray-700">
                   <p>
                     I love this app because it allows me to find friends for my
                     cat. Sometimes it's hard to find friends for cats, but here
@@ -42,7 +42,7 @@ function Testimonials() {
                     </div>
                   </div>
                 </div>
-                <div className="p-6 rounded shadow-md bg-beige2">
+                <div className="p-6 rounded shadow-md bg-beige2 text-gray-700">
                   <p>
                     As a new pet owner, I was looking for a way to connect with
                     other pet owners for advice and recommendations. This app
@@ -62,7 +62,7 @@ function Testimonials() {
                 </div>
               </div>
               <div className="grid content-center gap-4">
-                <div className="p-6 rounded shadow-md bg-beige2">
+                <div className="p-6 rounded shadow-md bg-beige2 text-gray-700">
                   <p>
                     After moving to a new city, I was looking for a way to meet
                     new people and socialize with my dogs. This app has been
@@ -80,7 +80,7 @@ function Testimonials() {
                     </div>
                   </div>
                 </div>
-                <div className="p-6 rounded shadow-md bg-beige2">
+                <div className="p-6 rounded shadow-md bg-beige2 text-gray-700">
                   <p>
                     I am very satisfied with this pet app, I have met other dog
                     owners in my neighborhood and we have organized group walks.
@@ -88,9 +88,7 @@ function Testimonials() {
                     with.This app has made it easy to connect with other dog
                     owners who share similar interests and lifestyles. We've
                     been able to exchange tips and recommendations on everything
-                    from pet grooming to pet-friendly places to visit. It's also
-                    been a great way to stay active and get some exercise, both
-                    for me and my dog. I highly recommend this app to anyone
+                    from pet grooming to pet-friendly places to visit.I highly recommend this app to anyone
                     looking to connect with other pet owners and provide their
                     pets with a fun and social experience.
                   </p>

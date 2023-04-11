@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useRef } from "react";
+
 
 import logoImage from "../images/petmate-newlogo-01.svg";
 
@@ -14,6 +15,19 @@ function Navbar() {
   const [toggle, setToggle] = useState(false); //true open and false close
   const handleClick = () => setToggle(!toggle);
 
+  const homeRef = useRef<HTMLDivElement>(null);
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const testimonialsRef = useRef<HTMLDivElement>(null);
+  const faqRef = useRef<HTMLDivElement>(null);
+
+  const handleLinkClick = (ref: React.RefObject<HTMLDivElement>) => {
+    if (ref.current) {
+      ref.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+ 
+  
+  
   return (
     <nav className="w-full h-[80px] bg-beige1 border-b">
       <div className="md:max-w-[1480px] max-w-[600px] m-auto w-full h-full flex justify-between items-center md:px-0 px-4">
@@ -21,12 +35,19 @@ function Navbar() {
 
         <div className="hidden md:flex items-center ">
           <ul className="flex gap-4">
-            <li>Home</li>
-            <li>About</li>
-            <li>Support</li>
-            <li>Platform</li>
-            <li>Pricing</li>
+          <li><a href="#home" onClick={handleClick}>Home</a></li>
+          
+          <li>
+          <a href="#about" onClick={() => handleLinkClick(aboutRef)}>
+            About
+          </a>
+        </li>
+          <li><a href="#testimonials" onClick={handleClick}>Testimonials</a></li>
+          <li><a href="#faq" onClick={handleClick}>FAQ</a></li>
+            
           </ul>
+          <div ref={homeRef} id="home"></div>
+          <div ref={aboutRef} id="about"></div>
         </div >
 
         <div className="hidden md:flex">
@@ -37,7 +58,7 @@ function Navbar() {
             LOGIN
           </button>
           <button
-            className="bg-beige3 hover:bg-grey px-8 py-3 rounded-full "
+            className="bg-purewhite hover:bg-grey px-8 py-3 rounded-full "
             onClick={() => navigate("/Register")}
           >
             REGISTER

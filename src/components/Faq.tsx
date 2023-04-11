@@ -2,7 +2,7 @@ import React from "react";
 import '../App.css'
 const Faqs = () => {
   return (
-    <section className="bg-beige2 text-[#FFFF]">
+    <section className="bg-beige2 text-gray-700">
       <div className="flex flex-col justify-center  p-4 mx-auto md:p-8">
         <p className=" p-2 text-sm font-medium tracking-wider text-center uppercase">
           How it works
