@@ -7,7 +7,9 @@ const SubscribeOne = () => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [errorString, setErrorString] = useState("Please accept the terms and conditions.");
+  const [errorString, setErrorString] = useState(
+    "Please accept the terms and conditions."
+  );
   const [isChecked, setIsChecked] = useState(false);
 
   const NavigateTo = useNavigate();
@@ -59,15 +61,13 @@ const SubscribeOne = () => {
     setIsChecked(!isChecked);
     if (isChecked) {
       setErrorString("Please accept the terms and conditions.");
-    }
-    else {
+    } else {
       setErrorString("");
     }
-    
   };
 
   return (
-    <div className="bg-white rounded-3xl p-4 flex flex-col items-center justify-center">
+    <div className="bg-beige3 rounded-3xl p-4 flex flex-col items-center justify-center">
       <form onSubmit={handleSubscribeOne} className="px-auto">
         <div className="flex font-bold mb-4 items-center justify-center text-xl ">
           REGISTER
@@ -136,7 +136,7 @@ const SubscribeOne = () => {
         <Button
           onClick={handleSubscribeOne}
           id=""
-          className="bg-purewhite hover:bg-grey  rounded-full w-44 h-10 items-center "
+          className="bg-beige1 hover:bg-grey  rounded-full w-44 h-10 items-center "
           text="NEXT"
           type="submit"
           disabled={!isChecked}
@@ -145,7 +145,7 @@ const SubscribeOne = () => {
       <div>
         <p
           id="needAccept"
-          className="text-center text-orange font-bold text-sm font-raleway mx-4"
+          className="text-center font-bold text-sm font-raleway mx-4"
         >
           {errorString}
         </p>
