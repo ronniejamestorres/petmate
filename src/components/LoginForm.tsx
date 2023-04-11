@@ -110,7 +110,7 @@ const LoginForm = () => {
         />
         <Button
           id=""
-          className=" rounded-full w-44 h-10 items-center text-xs   "
+          className=" rounded-full w-44 pb-10 items-center text-xs   "
           text="Forgot password"
           onClick={handleForgetPassword}
           type="submit"
