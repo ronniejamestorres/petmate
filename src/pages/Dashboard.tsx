@@ -24,7 +24,7 @@ const Dashboard = () => {
     race: "",
     age: 0,
     weight: 0,
-    interests: "",
+    interests: [],
     favoriteFoods: [],
     description: [],
   });
@@ -150,10 +150,12 @@ const Dashboard = () => {
         console.error("Error:", error);
       });
   };
+
   console.log("the userID is: ", localStorage.getItem("userId"));
+
   return (
     <div
-      className=" bg-center h-screen bg-no-repeat bg-cover bg-beige1 p-4"
+      className=" bg-center h-screen bg-repeat  bg-beige1 p-4"
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <div className="flex justify-center ">
@@ -161,182 +163,243 @@ const Dashboard = () => {
       </div>
 
       {!secondSubmitted ? (
-        <div>
-          <p className="flex justify-center m-4 text-xl">
-            Hello {localStorage.getItem("username")}
-          </p>
-          <label>
-            What kind of animal are you ?
-            <input
-              type="text"
-              value={animal}
-              onChange={handleAnimalChange}
-              className="border border-black rounded-2xl ml-2"
-            />
-          </label>
-          <br />
-          <button
-            onClick={handleSecondSubmit}
-            className="bg-beige2 hover:bg-grey rounded-full w-44 h-10 items-center mb-4 "
-          >
-            Submit
-          </button>
+        <div className="flex justify-center mt-10">
+          <div className="bg-white flex flex-col items-center justify-center rounded-xl p-4  ">
+            <p className="flex justify-center m-4 text-xl ">
+              Hello {localStorage.getItem("username")}
+            </p>
+            <label>
+              <p className="mb-4 ">What kind of animal are you ?</p>
+              <div className="mb-4 flex justify-center">
+                <input
+                  type="text"
+                  value={animal}
+                  onChange={handleAnimalChange}
+                  className="border border-black rounded-2xl p-2  "
+                />
+              </div>
+            </label>
+
+            <button
+              onClick={handleSecondSubmit}
+              className="bg-beige2 hover:bg-grey rounded-full w-44 h-10 items-center mb-4 "
+            >
+              Submit
+            </button>
+          </div>
         </div>
       ) : !thirdSubmitted ? (
-        <div>
-          <label>
-            What is your race ?
-            <input
-              type="text"
-              value={race}
-              onChange={handleRaceChange}
-              className="border border-black rounded-2xl ml-2"
-            />
-          </label>
-          <br />
-          <button
-            onClick={handleThirdSubmit}
-            className="bg-beige2 hover:bg-grey rounded-full w-44 h-10 items-center mb-4 "
-          >
-            Submit
-          </button>
+        <div className="flex justify-center mt-10">
+          <div className="bg-white flex flex-col items-center justify-center rounded-xl p-4  ">
+            <label>
+              <p className="mb-4 flex justify-center">What is your race ?</p>
+              <div className="mb-4 flex justify-center">
+                <input
+                  type="text"
+                  value={race}
+                  onChange={handleRaceChange}
+                  className="border border-black rounded-2xl p-2  "
+                />
+              </div>
+            </label>
+
+            <button
+              onClick={handleThirdSubmit}
+              className="bg-beige2 hover:bg-grey rounded-full w-44 h-10 items-center mb-4 "
+            >
+              Submit
+            </button>
+          </div>
         </div>
       ) : !fourthSubmitted ? (
-        <div>
-          <p>Thank you, {name}!</p>
-          <label>
-            How old are you?
-            <input
-              type="number"
-              value={age}
-              onChange={handleAgeChange}
-              className="border border-black rounded-2xl ml-2"
-            />
-          </label>
-          <br />
-          <button
-            onClick={handleFourthSubmit}
-            className="bg-beige2 hover:bg-grey rounded-full w-44 h-10 items-center mb-4 "
-          >
-            Submit
-          </button>
+        <div className="flex justify-center mt-10">
+          <div className="bg-white flex flex-col items-center justify-center rounded-xl p-4 ">
+            <p className="flex justify-center m-4 text-xl">
+              Thank you, {localStorage.getItem("username")} !
+            </p>
+            <label>
+              <p className="mb-4 flex justify-center">How old are you?</p>
+              <div className="mb-4 flex justify-center">
+                <input
+                  type="number"
+                  value={age}
+                  onChange={handleAgeChange}
+                  className="border border-black rounded-2xl p-2  "
+                />
+              </div>
+            </label>
+
+            <button
+              onClick={handleFourthSubmit}
+              className="bg-beige2 hover:bg-grey rounded-full w-44 h-10 items-center mb-4 "
+            >
+              Submit
+            </button>
+          </div>
         </div>
       ) : !fifthSubmitted ? (
-        <div>
-          <label>
-            What are your favorite foods?
-            <input
-              type="text"
-              value={favoriteFoods[0]}
-              onChange={(e) => handleFavoriteFoodsChange(e, 0)}
-              className="border border-black rounded-2xl ml-2"
-            />
-          </label>
-          <br />
-          <label>
-            What are your second favorite foods?
-            <input
-              type="text"
-              value={favoriteFoods[1]}
-              onChange={(e) => handleFavoriteFoodsChange(e, 1)}
-              className="border border-black rounded-2xl ml-2"
-            />
-          </label>
-          <br />
-          <label>
-            What are your third favorite foods?
-            <input
-              type="text"
-              value={favoriteFoods[2]}
-              onChange={(e) => handleFavoriteFoodsChange(e, 2)}
-              className="border border-black rounded-2xl ml-2"
-            />
-          </label>
-          <br />
-          <button
-            onClick={handleFifthSubmit}
-            className="bg-beige2 hover:bg-grey rounded-full w-44 h-10 items-center mb-4 "
-          >
-            Submit
-          </button>
+        <div className="flex justify-center mt-10">
+          <div className="bg-white flex flex-col items-center justify-center rounded-xl p-4 ">
+            <label>
+              <p className="mb-4 flex justify-center">
+                What are your favorite foods?
+              </p>
+              <div className="mb-4 flex justify-center">
+                <input
+                  type="text"
+                  value={favoriteFoods[0]}
+                  onChange={(e) => handleFavoriteFoodsChange(e, 0)}
+                  className="p-2 border border-black rounded-2xl  "
+                  placeholder="1"
+                />
+              </div>
+            </label>
+
+            <label>
+              <div className="mb-4 flex justify-center">
+                <input
+                  type="text"
+                  value={favoriteFoods[1]}
+                  onChange={(e) => handleFavoriteFoodsChange(e, 1)}
+                  className="p-2 border border-black rounded-2xl  "
+                  placeholder="2"
+                />
+              </div>
+            </label>
+
+            <label>
+              <div className="mb-4 flex justify-center">
+                <input
+                  type="text"
+                  value={favoriteFoods[2]}
+                  onChange={(e) => handleFavoriteFoodsChange(e, 2)}
+                  className="p-2 border border-black rounded-2xl  "
+                  placeholder="3"
+                />
+              </div>
+            </label>
+
+            <button
+              onClick={handleFifthSubmit}
+              className="bg-beige2 hover:bg-grey rounded-full w-44 h-10 items-center mb-4 "
+            >
+              Submit
+            </button>
+          </div>
         </div>
       ) : !sixthSubmitted ? (
-        <div>
-          <label>
-            What are your interests?
-            <input
-              type="text"
-              value={interests[0]}
-              onChange={(e) => handleInterestsChange(e, 0)}
-              className="border border-black rounded-2xl ml-2"
-            />
-          </label>
-          <br />
-          <label>
-            <input
-              type="text"
-              value={interests[1]}
-              onChange={(e) => handleInterestsChange(e, 1)}
-              className="border border-black rounded-2xl ml-2"
-            />
-          </label>
-          <br />
-          <label>
-            <input
-              type="text"
-              value={interests[2]}
-              onChange={(e) => handleInterestsChange(e, 2)}
-              className="border border-black rounded-2xl ml-2"
-            />
-          </label>
-          <br />
-          <button
-            onClick={handleSixthSubmit}
-            className="bg-beige2 hover:bg-grey rounded-full w-44 h-10 items-center mb-4 "
-          >
-            Submit
-          </button>
+        <div className="flex justify-center mt-10">
+          <div className="bg-white flex flex-col items-center justify-center rounded-xl p-4 ">
+            <label>
+              <p className="mb-4 flex justify-center">
+                What are your interests?
+              </p>
+              <div className="mb-4 flex justify-center">
+                <input
+                  type="text"
+                  value={interests[0]}
+                  onChange={(e) => handleInterestsChange(e, 0)}
+                  className="p-2 border border-black rounded-2xl  "
+                  placeholder="1"
+                />
+              </div>
+            </label>
+
+            <label>
+              <div className="mb-4 flex justify-center">
+                <input
+                  type="text"
+                  value={interests[1]}
+                  onChange={(e) => handleInterestsChange(e, 1)}
+                  className="p-2 border border-black rounded-2xl  "
+                  placeholder="2"
+                />
+              </div>
+            </label>
+
+            <label>
+              <div className="mb-4 flex justify-center">
+                <input
+                  type="text"
+                  value={interests[2]}
+                  onChange={(e) => handleInterestsChange(e, 2)}
+                  className="p-2 border border-black rounded-2xl  "
+                  placeholder="3"
+                />
+              </div>
+            </label>
+
+            <button
+              onClick={handleSixthSubmit}
+              className="bg-beige2 hover:bg-grey rounded-full w-44 h-10 items-center mb-4 "
+            >
+              Submit
+            </button>
+          </div>
         </div>
       ) : !seventhSubmitted ? (
-        <div>
-          <label>
-            Describe yourself :
-            <input
-              type="text"
-              value={description}
-              onChange={handleDescriptionChange}
-              className="border border-black rounded-2xl ml-2 h-60 w-full"
-            />
-          </label>
-          <br />
-          <button
-            onClick={handleSeventhSubmit}
-            className="bg-beige2 hover:bg-grey rounded-full w-44 h-10 items-center mb-4 "
-          >
-            Submit
-          </button>
+        <div className="flex justify-center mt-10">
+          <div className="bg-white flex flex-col items-center justify-center rounded-xl p-4 ">
+            <label>
+              <p className="mb-4 flex justify-center">Describe yourself :</p>
+              <div className="mb-4 flex justify-center">
+                <input
+                  type="text"
+                  value={description}
+                  onChange={handleDescriptionChange}
+                  className="border border-black rounded-2xl p-2 w-72 h-60  "
+                  placeholder="..."
+                />
+              </div>
+            </label>
+
+            <button
+              onClick={handleSeventhSubmit}
+              className="bg-beige2 hover:bg-grey rounded-full w-44 h-10 items-center mb-4 "
+            >
+              Submit
+            </button>
+          </div>
         </div>
       ) : (
-        <div className=" ">
-          <p className="border border-black p-2 rounded-xl mb-2">
-            Thank you, {localStorage.getItem("username")} the {animal}!
+        <div className=" justify-center  flex-col items-center ">
+          <p className="bg-white p-2 rounded-xl mb-2 ">
+            Thank you, {localStorage.getItem("username")} the {animal} !
           </p>
-          <p className="border border-black p-2 rounded-xl mb-2">
-            Your are a {race}
-          </p>
-          <p className="border border-black p-2 rounded-xl mb-2">
+          <p className="bg-white p-2 rounded-xl mb-2">Your are a {race}</p>
+          <p className="bg-white p-2 rounded-xl mb-2">
             Your are {age} years old{" "}
           </p>
-          <p className="border border-black p-2 rounded-xl mb-2">
-            Your favorite foods are : {favoriteFoods.join(", ")}.
-          </p>
-          <p className="border border-black p-2 rounded-xl mb-2">
-            Your interests are : {interests.join(", ")}.
-          </p>
-          <p className="border border-black p-2 rounded-xl mb-2 h-60  overflow-auto">
+
+          <div className="bg-white p-2 rounded-xl mb-2">
+            <p>Your favorite foods are :</p>
+            {favoriteFoods.map((favoriteFoods, index) => (
+              <p key={index} className="block">
+                {favoriteFoods}
+              </p>
+            ))}
+          </div>
+
+          <div className="bg-white p-2 rounded-xl mb-2">
+            <p>Your interests are:</p>
+            {interests.map((interest, index) => (
+              <p key={index} className="block">
+                {interest}
+              </p>
+            ))}
+          </div>
+          <p className="bg-white p-2 rounded-xl mb-2 overflow-auto">
+            <p>Description :</p>
             {description}{" "}
           </p>
-          <button onClick={handleLastSubmit}>Update User</button>
+          <div className="flex justify-center">
+            <button
+              onClick={handleLastSubmit}
+              className="bg-orange hover:bg-grey rounded-full w-44 h-10 items-center mb-4 "
+            >
+              Update User
+            </button>
+          </div>
         </div>
       )}
     </div>

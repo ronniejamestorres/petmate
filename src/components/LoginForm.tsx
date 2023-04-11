@@ -58,16 +58,26 @@ const LoginForm = () => {
     e.preventDefault();
     Navigate("/ForgotPassword");
   };
+  const usernameClassName = username
+    ? errorString
+      ? "border-red-500"
+      : "border-green-500"
+    : "";
+  const passwordClassName = password
+    ? errorString
+      ? "border-red-500"
+      : "border-green-500"
+    : "";
 
   return (
-    <div className="bg-beige3 rounded-3xl p-4 flex flex-col items-center justify-center">
+    <div className="  flex flex-col items-center justify-center">
       <form onSubmit={handleLogin} className="px-auto">
         <div className="mb-4">
           <div className="flex font-bold mb-4 items-center justify-center text-xl ">
             LOGIN
           </div>
           <input
-            className=" border  rounded-full w-full py-2 px-3 text-grey-700 leading-tight focus:outline-none focus:shadow-outline"
+            className={` border  rounded-full w-full py-2 px-3 text-grey-700 leading-tight focus:outline-none focus:shadow-outline ${usernameClassName}`}
             id="username"
             type="username"
             placeholder="Username"
@@ -81,7 +91,7 @@ const LoginForm = () => {
             htmlFor="password"
           ></label>
           <input
-            className="border  rounded-full w-full py-2 px-3 text-grey-700 leading-tight focus:outline-none focus:shadow-outline"
+            className={`border  rounded-full w-full py-2 px-3 text-grey-700 leading-tight focus:outline-none focus:shadow-outline ${passwordClassName}`}
             id="password"
             type="password"
             placeholder="Password"
@@ -93,15 +103,15 @@ const LoginForm = () => {
       <div className="flex flex-col">
         <Button
           id=""
-          className="bg-white hover:bg-grey rounded-full w-44 h-10 items-center mb-4  "
+          className="bg-orange hover:bg-grey  rounded-full w-44 h-10 items-center mb-4  "
           text="LOGIN"
           onClick={handleLogin}
           type="submit"
         />
         <Button
           id=""
-          className="bg-beige1 hover:bg-grey  rounded-full w-44 h-10 items-center   "
-          text="FORGOT PASSWORD"
+          className=" rounded-full w-44 h-10 items-center text-xs   "
+          text="Forgot password"
           onClick={handleForgetPassword}
           type="submit"
         />
