@@ -1,11 +1,13 @@
-import { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import CardsContext from "../contexts/CardsContext";
+import Confetti from "react-confetti";
 
 function SwipeResult() {
-  const { loggedInUser, lastDirection, swipedUser, match } =
-    useContext(CardsContext);
+  const { loggedInUser, lastDirection, swipedUser, match } = useContext(
+    CardsContext
+  );
 
-  console.log(loggedInUser);
+  
 
   return (
     <div className="flex w-full absolute flex-col bottom-24 py-24 justify-center items-center  lg:bottom-12 lg:py-12">
@@ -34,7 +36,6 @@ function SwipeResult() {
             Swipe right to like
           </h1>
         </div>
-        
       )}
     </div>
   );
