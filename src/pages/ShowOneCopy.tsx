@@ -8,7 +8,6 @@ function ShowOneCopy() {
         <img
           className="w-40 h-40 bg-red-500 rounded-full lg:rounded-none object-cover hover:scale-125"
           src="https://images.unsplash.com/photo-1614633673914-0af3eae06970?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80"
-          alt="Image 1"
         />
         <img
           className="w-40 h-40 bg-red-500 rounded-full lg:rounded-none object-cover hidden lg:block hover:scale-125"
