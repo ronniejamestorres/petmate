@@ -18,7 +18,9 @@ export const CardsProvider = ({ children }) => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await axios.get("http://wave.nodestarter.eu:4000/users/getall");
+        const res = await axios.get(
+          "http://wave.nodestarter.eu:4000/users/getall"
+        );
         setUsers(res.data);
       } catch (err) {
         console.log(err);

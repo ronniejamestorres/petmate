@@ -6,41 +6,34 @@ import CardsContext from "../contexts/CardsContext";
 import Confetti from "react-confetti";
 
 function Cards() {
-  const { users, lastDirection, swiped, outOfFrame,match } =
+  const { users, lastDirection, swiped, outOfFrame, match } =
     React.useContext(CardsContext);
 
-    const [showConfetti, setShowConfetti] = useState(false); // State pour gérer l'affichage du Confetti
+  const [showConfetti, setShowConfetti] = useState(false); // State pour gérer l'affichage du Confetti
 
-    useEffect(() => {
-      // Mettre à jour le state du Confetti lorsque le message "You matched with" est affiché
-      if (match) {
-        setShowConfetti(true);
-        // Masquer le Confetti après 5 secondes
-        setTimeout(() => {
-          setShowConfetti(false);
-        }, 5000);
-      }
-    }, [match]);
+  useEffect(() => {
+    // Mettre à jour le state du Confetti lorsque le message "You matched with" est affiché
+    if (match) {
+      setShowConfetti(true);
+      // Masquer le Confetti après 5 secondes
+      setTimeout(() => {
+        setShowConfetti(false);
+      }, 5000);
+    }
+  }, [match]);
 
   return (
     <div className="cardPet__container">
-      {match ? (
-        showConfetti && <Confetti/>
-        ) : null
-      }
+      {match ? showConfetti && <Confetti tweenDuration={5000} /> : null}
       {
-        
-
         // creating a card with "react-tinder-card" npm package for each user array element
         users.map((user) => (
-
           <CardUser
             className="swipe"
             key={user._id}
             preventSwipe={["up", "down"]}
             onSwipe={(dir) => swiped(dir, user._id)}
             onCardLeftScreen={() => outOfFrame(user.username)}
-            
           >
             {/* calling the userCard componand with the array element as prop  */}
             <UserCard user={user} />
