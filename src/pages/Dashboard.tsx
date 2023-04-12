@@ -126,11 +126,11 @@ const Dashboard = () => {
       interests,
       description,
     };
-
+   
     axios
       .patch(
         `http://wave.nodestarter.eu:4000/users/update/${localStorage.getItem(
-          "userId"
+          "loggedIn"
         )}`,
         data,
         {
@@ -147,11 +147,11 @@ const Dashboard = () => {
         );
       })
       .catch((error) => {
-        console.error("Error:", error);
+        console.error("Error from route update :", error);
       });
   };
 
-  console.log("the userID is: ", localStorage.getItem("userId"));
+  console.log("the userID is: ", localStorage.getItem("loggedIn"));
 
   return (
     <div
