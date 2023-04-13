@@ -1,5 +1,4 @@
 import React from "react";
-import Caroussel from "../components/Carousel";
 import ContainerCard from "../components/ContainerCard";
 import CarouselComponent from "../components/CarouselComponent";
 

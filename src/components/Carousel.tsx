@@ -2,12 +2,14 @@
 import CarouselComponent from "./CarouselComponent";
 import ContainerCard from "./ContainerCard";
 
+
 const MyComponent = () => {
   return (
-    <div>
+    <div className="bg-beige1">
       
       <CarouselComponent />
       <ContainerCard />
+      
     </div>
   );
 };

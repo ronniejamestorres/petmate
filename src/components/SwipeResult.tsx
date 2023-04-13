@@ -13,7 +13,7 @@ function SwipeResult() {
     <div className="flex w-full absolute flex-col bottom-24 py-24 justify-center items-center  lg:bottom-12 lg:py-12">
       {match ? (
         <div className="flex flex-col items-center">
-          <h1 className="text-xl text-orange  bg-white rounded-lg animate-bounce  font-bold md:text-2xl lg:text-2xl">
+          <h1 className="text-2xl text-orange  bg-white rounded-lg animate-bounce  font-bold md:text-2xl lg:text-2xl">
             You matched with {swipedUser.username}
           </h1>
         </div>

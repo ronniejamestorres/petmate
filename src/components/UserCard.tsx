@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -33,10 +34,12 @@ const UserCard = ({ user }) => {
 
     //call the function with the prop received from the 'cards' component
     //if the user has no picture yet a profile template picture is displayed
-    if (user.pictures && user.pictures.lenght > 0) {
+    if (user.pictures && user.pictures.length > 0) {
       fetchPictures(user.pictures[0]);
     } else setImageDataURL("../public/emptyTemplate.jpg");
   }, [user]);
+
+  console.log(user);
 
   return (
     <div
@@ -45,12 +48,14 @@ const UserCard = ({ user }) => {
         backgroundImage: `url(${imageDataURL})`,
       }}
     >
-      <h3
-        className="text-xl text-dark font-extrabold cursor-pointer"
-        onClick={() => navigate(`/ShowOne/${user._id}`)}
-      >
-        {user.username}
-      </h3>
+      <div>
+        <h3
+          onClick={() => navigate(`/ShowOne/${user._id}`)}
+          className="flex items-center justify-start text-purewhite rounded-md bg-orange font-bold cursor-pointer"
+        >
+          {user.username}
+        </h3>
+      </div>
     </div>
   );
 };
