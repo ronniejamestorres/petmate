@@ -1,6 +1,10 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
 function ContainerCard() {
+  const { id } = useParams();
+  console.log("show the id in the link (carousel machin): ", id);
+
   return (
     <div className="flex justify-center ">
       <div className="bg-purewhite text-black text-center text-sm rounded-lg border border-beige2 p-8  m-10 lg:text-md lg:p-2 lg:m-4">
