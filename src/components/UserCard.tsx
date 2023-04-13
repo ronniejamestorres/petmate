@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
+
+import { useNavigate } from "react-router";
+
 import axios from "axios";
 
 const UserCard = ({ user }) => {
   const [imageDataURL, setImageDataURL] = useState("");
+  const navigate= useNavigate()
+
 
   //using the backend route for fetching the image
   useEffect(() => {
@@ -42,6 +47,7 @@ const UserCard = ({ user }) => {
       style={{
         backgroundImage: `url(${imageDataURL})`,
       }}
+      onClick={()=>navigate("/showOne")}
     >
       <h3 className="text-xl text-dark font-extrabold">{user.username}</h3>
     </div>

@@ -19,7 +19,7 @@ function App() {
           <Route path="/Login" element={<Login />}></Route>
           <Route path="/ShowAll" element={<ShowAll />}></Route>
           <Route path="/Register" element={<Register />}></Route>
-          <Route path="/ShowOneCopy" element={<ShowOneCopy />}></Route>
+          <Route path="/ShowOne" element={<ShowOne />}></Route>
           <Route path="/ForgotPassword" element={<ForgotPassword />}></Route>
           <Route
             path="/Dashboard"
@@ -27,7 +27,7 @@ function App() {
               <Dashboard onPictureAdded={() => console.log("Picture added")} />
             }
           ></Route>
-          <Route path="*" element={<ShowOne />}></Route>
+          <Route path="*" element={<ShowOneCopy />}></Route>
         </Routes>
       </div>
     </Router>
