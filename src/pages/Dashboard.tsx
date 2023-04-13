@@ -56,7 +56,7 @@ const Dashboard = () => {
     }
     const newCharacteristics = {
       ...characteristics,
-      race: event.target.value,
+      age: event.target.value,
     };
     setCharacteristics(newCharacteristics);
   };
@@ -68,14 +68,25 @@ const Dashboard = () => {
     const newFavoriteFoods = [...favoriteFoods];
     newFavoriteFoods[index] = event.target.value;
     setFavoriteFoods(newFavoriteFoods);
+    const newCharacteristics = {
+      ...characteristics,
+      favoriteFoods: newFavoriteFoods,
+    };
+    setCharacteristics(newCharacteristics);
   };
+
   const handleInterestsChange = (
     event: React.ChangeEvent<HTMLInputElement>,
     index: number
   ) => {
-    const newInterests = [...favoriteFoods];
+    const newInterests = [...interests];
     newInterests[index] = event.target.value;
     setInterests(newInterests);
+    const newCharacteristics = {
+      ...characteristics,
+      interests: newInterests,
+    };
+    setCharacteristics(newCharacteristics);
   };
 
   const handleDescriptionChange = (
@@ -84,11 +95,6 @@ const Dashboard = () => {
     {
       setDescription(event.target.value);
     }
-    const newCharacteristics = {
-      ...characteristics,
-      race: event.target.value,
-    };
-    setCharacteristics(newCharacteristics);
   };
 
   const handleSecondSubmit = () => {
@@ -119,14 +125,10 @@ const Dashboard = () => {
 
   const handleLastSubmit = () => {
     const data = {
-      animal,
-      race,
-      age,
-      favoriteFoods,
-      interests,
       description,
+      characteristics,
     };
-   
+    console.log("description is ", data);
     axios
       .patch(
         `http://wave.nodestarter.eu:4000/users/update/${localStorage.getItem(
@@ -150,8 +152,6 @@ const Dashboard = () => {
         console.error("Error from route update :", error);
       });
   };
-
-  console.log("the userID is: ", localStorage.getItem("loggedIn"));
 
   return (
     <div
