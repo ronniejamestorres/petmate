@@ -1,6 +1,6 @@
 import React from "react";
 import Caroussel from "../components/Carousel";
-import axios from "axios";
+
 
 function ShowOne() {
  

@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from "react";
-
-import { useNavigate } from "react-router";
-
+import { useNavigate, Link } from "react-router-dom"; // Import Link from react-router-dom
 import axios from "axios";
 
 const UserCard = ({ user }) => {
   const [imageDataURL, setImageDataURL] = useState("");
-  const navigate= useNavigate()
-
+  const navigate = useNavigate();
 
   //using the backend route for fetching the image
   useEffect(() => {
@@ -36,10 +33,12 @@ const UserCard = ({ user }) => {
 
     //call the function with the prop received from the 'cards' component
     //if the user has no picture yet a profile template picture is displayed
-    if (user.pictures && user.pictures.lenght > 0) {
+    if (user.pictures && user.pictures.length > 0) {
       fetchPictures(user.pictures[0]);
     } else setImageDataURL("../public/emptyTemplate.jpg");
   }, [user]);
+
+  console.log(user)
 
   return (
     <div
@@ -47,9 +46,18 @@ const UserCard = ({ user }) => {
       style={{
         backgroundImage: `url(${imageDataURL})`,
       }}
-      onClick={()=>navigate("/showOne")}
     >
-      <h3 className="text-xl text-dark font-extrabold">{user.username}</h3>
+      <Link to={{
+        pathname: "/showOne",
+        state: { userId: user._id } // Pass the user object to the ShowOne component
+      }}>
+        <h3
+          className="text-xl bg-orange text-purewhite rounded-full font-bold cursor-pointer"
+          onClick={() => navigate("/showOne")}
+        >
+          {user.username}
+        </h3>
+      </Link>
     </div>
   );
 };
