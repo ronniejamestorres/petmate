@@ -19,7 +19,7 @@ function App() {
           <Route path="/Login" element={<Login />}></Route>
           <Route path="/ShowAll" element={<ShowAll />}></Route>
           <Route path="/Register" element={<Register />}></Route>
-          <Route path="/ShowOne" element={<ShowOne />}></Route>
+          <Route path="/showOne/:id" element={<ShowOne />}></Route>
           <Route path="/ForgotPassword" element={<ForgotPassword />}></Route>
           <Route
             path="/Dashboard"

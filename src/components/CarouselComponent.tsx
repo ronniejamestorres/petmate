@@ -3,7 +3,7 @@ import React from "react";
 
 function CarouselComponent() {
   return (
-    <div className=" h-full-screen">
+    <div>
       <h1 className="flex justify-center pt-8 pb-6 font-bold text-lg text-brown lg:text-2xl">
         G a l l e r y
       </h1>

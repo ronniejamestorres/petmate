@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 interface Characteristic {
   animal: string;
@@ -18,9 +19,8 @@ interface Data {
 function ContainerCard() {
   const [data, setData] = useState<Data | null>(null);
   const [loading, setLoading] = useState(true);
-
-  // Get local storage
-  const id = localStorage.getItem("loggedIn");
+  const { id } = useParams();
+  
 
   useEffect(() => {
 
@@ -34,7 +34,7 @@ function ContainerCard() {
         console.log(err);
       });
   }, []);
-
+  console.log(id);
   console.log("ici on fetch la data du user qu'on a log in ", data);
   return (
     <div className="flex justify-center ">

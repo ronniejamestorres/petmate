@@ -42,23 +42,18 @@ const UserCard = ({ user }) => {
 
   return (
     <div
-      className="card flex"
-      style={{
-        backgroundImage: `url(${imageDataURL})`,
-      }}
-    >
-      <Link to={{
-        pathname: "/showOne",
-        state: { userId: user._id } // Pass the user object to the ShowOne component
-      }}>
-        <h3
-          className="text-xl bg-orange text-purewhite rounded-full font-bold cursor-pointer"
-          onClick={() => navigate("/showOne")}
-        >
-          {user.username}
-        </h3>
-      </Link>
-    </div>
+  className="card flex"
+  style={{
+    backgroundImage: `url(${imageDataURL})`,
+  }}
+ 
+>
+<div>
+  <h3  onClick={() => navigate(`/ShowOne/${user._id}`)} className="flex items-center justify-start text-purewhite rounded-md bg-orange font-bold cursor-pointer">{user.username}</h3>
+  
+</div>
+</div>
+
   );
 };
 
