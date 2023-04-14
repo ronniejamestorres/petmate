@@ -370,7 +370,6 @@ const Dashboard = () => {
           <p className="bg-white p-2 rounded-xl mb-2">
             Your are {age} years old{" "}
           </p>
-
           <div className="bg-white p-2 rounded-xl mb-2">
             <p>Your favorite foods are :</p>
             {favoriteFoods.map((favoriteFoods, index) => (
@@ -379,7 +378,6 @@ const Dashboard = () => {
               </p>
             ))}
           </div>
-
           <div className="bg-white p-2 rounded-xl mb-2">
             <p>Your interests are:</p>
             {interests.map((interest, index) => (
@@ -399,6 +397,11 @@ const Dashboard = () => {
             >
               Update User
             </button>
+          </div>
+          // i need to insert upload picture here
+          <div>
+            <input type="file" />
+            <button>Upload</button>
           </div>
         </div>
       )}
