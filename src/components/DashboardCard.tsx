@@ -1,6 +1,6 @@
 import React from "react";
 
-function ContainerCardCopy() {
+function DashboardCard() {
   return (
     <div className="justify-center h-screen  ">
       <div className=" m-2  ">
@@ -62,4 +62,4 @@ function ContainerCardCopy() {
   );
 }
 
-export default ContainerCardCopy;
+export default DashboardCard;

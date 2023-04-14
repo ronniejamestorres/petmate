@@ -1,10 +1,10 @@
 import React from "react";
-import ContainerCardCopy from "../components/ContainerCardCopy";
+import ContainerCardCopy from "../components/DashboardCard";
 import NavbarLogin from "../components/NavbarLogin";
 import backgroundImage from "../images/petmate-background-01.svg";
 import DashboardGallery from "../components/DashboardGallery";
 
-function ShowOneCopy() {
+function DashboardTwo() {
   return (
     <div
       className="h-screen bg-center bg-repeat  bg-beige1 overflow-hidden"
@@ -27,4 +27,4 @@ function ShowOneCopy() {
   );
 }
 
-export default ShowOneCopy;
+export default DashboardTwo;
