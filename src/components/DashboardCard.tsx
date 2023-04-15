@@ -14,7 +14,7 @@ function DashboardCard() {
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
           ornare auctor metus vel mollis. Curabitur ornare auctor metus vel
-          mollis.
+          mollis. Curabitur ornare auctor metus vel mollis.
         </p>
       </div>
       <div className="m-2">

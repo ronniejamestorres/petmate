@@ -21,12 +21,7 @@ function App() {
           <Route path="/Register" element={<Register />}></Route>
           <Route path="/DashboardTwo" element={<DashboardTwo />}></Route>
           <Route path="/ForgotPassword" element={<ForgotPassword />}></Route>
-          <Route
-            path="/Dashboard"
-            element={
-              <Dashboard onPictureAdded={() => console.log("Picture added")} />
-            }
-          ></Route>
+          <Route path="/Dashboard" element={<Dashboard />}></Route>
           <Route path="*" element={<ShowOne />}></Route>
         </Routes>
       </div>
