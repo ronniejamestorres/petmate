@@ -5,7 +5,8 @@ import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import ForgotPassword from "./pages/ForgotPassword";
 import ShowOne from "./pages/ShowOne";
-import ShowOneCopy from "./pages/ShowOneCopy";
+import Error404 from "./pages/Error404";
+import ChatRoom from "./pages/ChatRoom";
 import "./App.css";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -27,7 +28,8 @@ function App() {
             }
           ></Route>
           <Route path="/showOne/:id" element={<ShowOne />}></Route>
-          <Route path="*" element={<ShowOneCopy />}></Route>
+          <Route path="/chatRoom" element={<ChatRoom />}></Route>
+          <Route path="*" element={<Error404 />}></Route>
         </Routes>
       </div>
     </Router>

@@ -142,7 +142,7 @@ const Dashboard = () => {
       .then((response) => {
         // Handle response data
         console.log(
-          "Success:, a mon avis i am updated but u need to check ",
+          "Success:",
           response
         );
       })
@@ -151,7 +151,6 @@ const Dashboard = () => {
       });
   };
 
-  console.log("the userID is: ", localStorage.getItem("userId"));
 
   return (
     <div

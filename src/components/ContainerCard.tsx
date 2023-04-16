@@ -32,8 +32,7 @@ function ContainerCard() {
         console.log(err);
       });
   }, []);
-  console.log(id);
-  console.log("ici on fetch la data du user qu'on a log in ", data);
+ 
   return (
     <div className="flex justify-center ">
       <div className="bg-purewhite text-black text-center text-sm rounded-lg border border-beige2 p-8  m-10 lg:text-md lg:p-2 lg:m-4">

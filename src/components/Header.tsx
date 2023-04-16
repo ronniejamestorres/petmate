@@ -9,21 +9,6 @@ import logoImage from "../images/petmate-newlogo-01.svg";
 import { Link } from "react-router-dom";
 
 const Header = () => {
-  {
-    /*const [user, setUser] = React.useState<any>(null);
-
-  React.useEffect(() => {
-    axios.get('http://wave.nodestarter.eu:4000/users/getall')
-    .then((res) => {
-      setUser(res.data)
-    })
-    .catch((err) => {
-      console.log(err)
-    })
-  }, [])
-
-console.log(user)*/
-  }
 
   return (
     <div className="flex justify-between items-center border-b border-gray-400 pb-2 bg-beige1 ">

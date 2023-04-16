@@ -7,22 +7,6 @@ import petsImage from "../images/pngegg5.png";
 import ForgotPassForm from "../components/ForgotPassForm";
 import Button from "../components/Button";
 
-// const axiosInstance = axios.create({
-//   baseURL: 'https://fullstacksoundwave.herokuapp.com',
-//   timeout: 5000,
-//   headers: { 'X-Custom-Header': 'value' }
-// });
-
-// axiosInstance.get('/user/getAll', {
-//     data: 'example data'
-//   })
-//   .then(response => {
-//     console.log(response.data);
-//   })
-//   .catch(error => {
-//     console.log(error);
-//   });
-
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
 

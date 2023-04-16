@@ -42,7 +42,8 @@ export const CardsProvider = ({ children }) => {
         console.log(err);
       }
     };
-    fetchLoggedInUser();
+   
+     fetchLoggedInUser();
   }, []);
 
   const swiped = (direction, idSwiped) => {

@@ -29,7 +29,7 @@ const UserCard = ({ user }) => {
         console.log(err);
       }
     };
-    //console.log("log path for each user element: ", user.pictures.length);
+  
     fetchPictures(user.pictures[0]);
 
     //call the function with the prop received from the 'cards' component
@@ -39,7 +39,7 @@ const UserCard = ({ user }) => {
     } else setImageDataURL("../public/emptyTemplate.jpg");
   }, [user]);
 
-  console.log(user);
+
 
   return (
     <div
