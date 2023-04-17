@@ -7,6 +7,7 @@ const ChatRoom = () => {
   const [room, setRoom] = useState("");
   const [currentMessage, setCurrentMessage] = useState("");
   const [messages, setMessages] = useState([]);
+  const { users, match } = useContext(CardsContext);
 
   const joinRoom = (e) => {
     e.preventDefault();
@@ -86,13 +87,12 @@ const ChatRoom = () => {
         <div id="chat-body" className=" h-96 border my-2">
           {messages.map((message, index) => (
             <div key={index}>
-              <p className="flex justify-between">
+              <p className="flex justify-between items-center">
                 <span>{message.username}</span>
-                <span className=" text-sm">{message.time}</span>
+                <span className="text-xs font-thin">{message.time}</span>
               </p>
               <p>{message.message}</p>
               <hr />
-              <br />
             </div>
           ))}
         </div>
@@ -104,6 +104,7 @@ const ChatRoom = () => {
             type="text"
             placeholder="Hey..."
             className="border p-1"
+            value={currentMessage}
           />
           <button onClick={sendMessage} className=" border ml-2 px-2">
             Send

@@ -3,8 +3,11 @@ import logoImage from "../images/petmate-newlogo-01.svg";
 import backgroundImage from "../images/petmate-background-01.svg";
 import axios from "axios";
 import { update } from "@react-spring/web";
+import { useNavigate } from "react-router";
 
 const Dashboard = () => {
+  const Navigate = useNavigate();
+
   const [name, setName] = useState("");
   const [animal, setAnimal] = useState("");
   const [race, setRace] = useState("");
@@ -151,6 +154,8 @@ const Dashboard = () => {
       .catch((error) => {
         console.error("Error from route update :", error);
       });
+
+    Navigate("/showall");
   };
 
   return (
@@ -160,6 +165,10 @@ const Dashboard = () => {
     >
       <div className="flex justify-center ">
         <img src={logoImage} alt="Logo" className="w-60 m-4" />
+      </div>
+      <div>
+        <input type="file" />
+        <button> submit</button>
       </div>
 
       {!secondSubmitted ? (
