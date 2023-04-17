@@ -1,16 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import socket from "../socket";
+import CardsContext from "../contexts/CardsContext";
 
 const ChatRoom = () => {
-  const [username, setUsername] = React.useState("");
-  const [room, setRoom] = React.useState("");
-  const [currentMessage, setCurrentMessage] = React.useState("");
-  const [messages, setMessages] = React.useState([]);
+  const [username, setUsername] = useState("");
+  const [room, setRoom] = useState("");
+  const [currentMessage, setCurrentMessage] = useState("");
+  const [messages, setMessages] = useState([]);
 
   const joinRoom = (e) => {
     e.preventDefault();
     if (username && room) {
-      socket.emit("join_room", room);
+      socket.emit("join_room", { username, room });
+      console.log(username, "joining room ", room);
     }
   };
 
@@ -46,7 +48,10 @@ const ChatRoom = () => {
   return (
     <div className="flex flex-col items-center">
       <h1 className="text-3xl p-5">ChatRoom</h1>
-      <form id="send">
+      <form
+        id="join"
+        className="flex items-center flex-col justify-center gap-1"
+      >
         <input
           onChange={(e) => {
             setUsername(e.target.value);
@@ -54,7 +59,7 @@ const ChatRoom = () => {
           type="text"
           id="user"
           placeholder="your name here"
-          className=" border border-black"
+          className=" border p-1"
         />
         <input
           onChange={(e) => {
@@ -63,19 +68,27 @@ const ChatRoom = () => {
           type="text"
           id="room"
           placeholder="the room name"
-          className=" border border-black"
+          className=" border p-1"
         />
-        <button onClick={joinRoom} type="submit" id="send" className="border">
-          Join the room
+        <button
+          onClick={joinRoom}
+          type="submit"
+          id="join-btn"
+          className="border px-1 border-gray-600 "
+        >
+          Join
         </button>
       </form>
       <div id="messages" className=" mt-5 ">
-        <div id="chat-body">
+        <div id="chat-header">
+          <p className="text-lg">Chatting with: </p>
+        </div>
+        <div id="chat-body" className=" h-96 border my-2">
           {messages.map((message, index) => (
             <div key={index}>
-              <p>
+              <p className="flex justify-between">
                 <span>{message.username}</span>
-                <span>{message.time}</span>
+                <span className=" text-sm">{message.time}</span>
               </p>
               <p>{message.message}</p>
               <hr />
@@ -83,15 +96,18 @@ const ChatRoom = () => {
             </div>
           ))}
         </div>
-        <div id="chat-footer" className=" bottom-0">
+        <div id="chat-footer" className="">
           <input
             onChange={(e) => {
               setCurrentMessage(e.target.value);
             }}
             type="text"
             placeholder="Hey..."
+            className="border p-1"
           />
-          <button onClick={sendMessage}>Send</button>
+          <button onClick={sendMessage} className=" border ml-2 px-2">
+            Send
+          </button>
         </div>
       </div>
     </div>
