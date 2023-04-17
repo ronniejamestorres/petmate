@@ -11,33 +11,31 @@ function CarouselComponent() {
   useEffect(() => {
     const fetchPictures = async (paths: string[]) => {
       try {
-        const imageDataURLs = await Promise.all(
-          paths.map(async (path) => {
-            const res = await axios.post(
-              "http://wave.nodestarter.eu:4000/users/getPicture",
-              {
-                picture: path,
-              },
-              { responseType: "arraybuffer" }
-            );
-
-            const blob = new Blob([res.data], {
-              type: res.headers["content-type"],
-            });
-            return URL.createObjectURL(blob);
-          })
+        const res = await axios.post(
+          "http://wave.nodestarter.eu:4000/users/getPicture",
+          {
+            picture: paths, //path of the picture stored on the server
+          },
+          { responseType: "arraybuffer" }
         );
-        setImageDataURLs(imageDataURLs);
+
+        //create a link from the response data image
+        const blob = new Blob([res.data], {
+          type: res.headers["content-type"],
+        });
+        const url = URL.createObjectURL(blob);
+
+        setImageDataURLs([url]);
       } catch (err) {
         console.log(err);
       }
     };
 
     // Find the user by id
-    const user = users.find((user) => user.id === id);
+    const user = users.find((user) => user._id === id);
 
     if (user && user.pictures && user.pictures.length > 0) {
-      fetchPictures(user.pictures);
+      fetchPictures(user.pictures[0]);
     } else {
       // Set empty template image URL if user does not have any pictures
       setImageDataURLs(["../emptyTemplate.jpg"]);
