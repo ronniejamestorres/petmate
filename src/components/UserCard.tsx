@@ -39,8 +39,6 @@ const UserCard = ({ user }) => {
     } else setImageDataURL("../public/emptyTemplate.jpg");
   }, [user]);
 
-  console.log(user);
-
   return (
     <div
       className="card flex"

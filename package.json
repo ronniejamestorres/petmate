@@ -21,8 +21,11 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
     "react-router-dom": "^6.9.0",
+
     "react-swipe-component": "^3.0.0",
-    "react-tinder-card": "^1.6.2"
+    "react-tinder-card": "^1.6.2",
+    "socket.io-client": "^4.6.1"
+
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
