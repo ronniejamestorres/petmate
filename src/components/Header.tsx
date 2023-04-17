@@ -27,7 +27,7 @@ console.log(user)*/
 
   return (
     <div className="flex justify-between items-center border-b border-gray-400 pb-2 bg-beige1 ">
-      <Link to="/dashboard">
+      <Link to="/dashboardtwo">
         <IconButton>
           <PersonIcon />
         </IconButton>

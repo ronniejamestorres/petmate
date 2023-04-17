@@ -17,7 +17,7 @@ function NavbarLogin() {
         <img
           src={logoImage}
           alt="Logo"
-          className="h-[25px]"
+          className="h-[25px] hover:scale-125"
           onClick={() => navigate("/")}
         />
 
