@@ -1,48 +1,50 @@
-import React, { useContext, useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import axios from "axios";
+import React from "react";
+import { useContext } from "react";
 import CardsContext from "../contexts/CardsContext";
+import { useParams } from "react-router-dom";
+import { useState } from "react";
+import { useEffect } from "react";
+import axios from "axios";
 
 function CarouselComponent() {
-  const { users } = useContext(CardsContext);
+  const { users } = useContext(CardsContext)
   const { id } = useParams<{ id: string }>();
-  const [imageDataURLs, setImageDataURLs] = useState<string[]>([]); // specify the type for state variable
+  const [ imageDataURL, setImageDataURL] = useState();
 
+  //using the backend route for fetching the image
   useEffect(() => {
-    const fetchPictures = async (paths: string[]) => {
+    const fetchPictures = async (path:string) => {
       try {
-        const imageDataURLs = await Promise.all(
-          paths.map(async (path) => {
-            const res = await axios.post(
-              "http://wave.nodestarter.eu:4000/users/getPicture",
-              {
-                picture: path,
-              },
-              { responseType: "arraybuffer" }
-            );
-
-            const blob = new Blob([res.data], {
-              type: res.headers["content-type"],
-            });
-            return URL.createObjectURL(blob);
-          })
+        const res = await axios.post(
+          "http://wave.nodestarter.eu:4000/users/getPicture",
+          {
+            picture: path, //path of the picture stored on the server
+          },
+          { responseType: "arraybuffer" }
         );
-        setImageDataURLs(imageDataURLs);
+
+        //create a link from the response data image
+        const blob = new Blob([res.data], {
+          type: res.headers["content-type"],
+        });
+        const url = URL.createObjectURL(blob);
+        setImageDataURL(url);
       } catch (err) {
         console.log(err);
       }
     };
+    //console.log("log path for each user element: ", user.pictures.length);
+    fetchPictures(user.pictures[0]);
 
-    // Find the user by id
-    const user = users.find((user) => user.id === id);
+    //call the function with the prop received from the 'cards' component
+    //if the user has no picture yet a profile template picture is displayed
+    if (user.pictures && user.pictures.length > 0) {
+      fetchPictures(user.pictures[0]);
+    } else setImageDataURL("../public/emptyTemplate.jpg");
+  }, [user]);
 
-    if (user && user.pictures && user.pictures.length > 0) {
-      fetchPictures(user.pictures);
-    } else {
-      // Set empty template image URL if user does not have any pictures
-      setImageDataURLs(["../emptyTemplate.jpg"]);
-    }
-  }, [id, users]); // Include id and users as dependencies for useEffect
+  
+  console.log(imageDataURL)
 
   return (
     <div>
@@ -52,21 +54,39 @@ function CarouselComponent() {
       <div className="relative flex items-center justify-center w-full">
         <div className="flex items-center justify-start rounded-full w-2/3  h-64 gap-8 py-4 mx-auto overflow-auto md:rounded-lg md:w-2/3 md:h-80 lg:gap-8 lg:w-1/2 lg:h-full lg:rounded-lg">
           <div className="relative flex flex-shrink-0 w-full sm:w-auto">
-            {imageDataURLs.length > 0 ? (
-              imageDataURLs.map((imageDataURL, index) => (
-                <img
-                  key={index}
-                  className="object-cover object-center h-80 aspect-square"
-                  src={imageDataURL}
-                  alt={`User Profile ${index + 1}`}
-                />
-              ))
-            ) : (
-              <img
-                src={imageDataURLs[0] || "../emptyTemplate.jpg"}
-                alt="User Profile Template"
-              />
-            )}
+            <img
+              className="object-cover object-center h-80 aspect-square"
+              src="https://images.unsplash.com/photo-1614633673914-0af3eae06970?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80"
+              alt="Image 1"
+            />
+          </div>
+          <div className="relative flex flex-shrink-0 w-full sm:w-auto">
+            <img
+              className="object-cover object-center h-80 aspect-square "
+              src="https://images.unsplash.com/photo-1583512603784-a8e3ea8355b4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80"
+              alt="Image 2"
+            />
+          </div>
+          <div className="relative flex flex-shrink-0 w-full sm:w-auto">
+            <img
+              className="object-cover object-center h-80 aspect-square "
+              src="https://images.unsplash.com/photo-1583511666372-62fc211f8377?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80"
+              alt="Image 3"
+            />
+          </div>
+          <div className="relative flex flex-shrink-0 w-full sm:w-auto">
+            <img
+              className="object-cover object-center h-80 aspect-square "
+              src="https://images.unsplash.com/photo-1614633673914-0af3eae06970?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80"
+              alt="Image 1"
+            />
+          </div>
+          <div className="relative flex flex-shrink-0 w-full sm:w-auto">
+            <img
+              className="object-cover object-center h-80 aspect-square "
+              src="https://images.unsplash.com/photo-1583512603784-a8e3ea8355b4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80"
+              alt="Image 2"
+            />
           </div>
         </div>
       </div>
