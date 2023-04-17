@@ -15,7 +15,9 @@ const Dashboard = () => {
   const [favoriteFoods, setFavoriteFoods] = useState<string[]>(["", "", ""]);
   const [interests, setInterests] = useState<string[]>(["", "", ""]);
   const [description, setDescription] = useState("");
+  const [selectedFile, setSelectedFile] = useState(null);
 
+  const [firstSubmitted, setFirtSubmitted] = useState(false);
   const [secondSubmitted, setSecondSubmitted] = useState(false);
   const [thirdSubmitted, setThirdSubmitted] = useState(false);
   const [fourthSubmitted, setFourthSubmitted] = useState(false);
@@ -100,8 +102,38 @@ const Dashboard = () => {
     }
   };
 
+  const handleFirstSubmit = () => {
+    console.log(`uploading picture`);
+    //upload the picture ....
+    if (!selectedFile) {
+      alert("Please select a file to upload.");
+      return;
+    }
+
+    const formData = new FormData();
+
+    formData.append("uploads", selectedFile);
+    try {
+      const response = axios.post(
+        `http://wave.nodestarter.eu:4000/users/upload-picture`,
+        formData,
+        {
+          headers: {
+            "x-auth-token": localStorage.getItem("x-auth-token"),
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+    } catch (error) {
+      console.log("error is ", error);
+    }
+
+    setFirtSubmitted(true);
+  };
+
   const handleSecondSubmit = () => {
     console.log(`Animal: ${animal}`);
+
     setSecondSubmitted(true);
   };
 
@@ -166,12 +198,32 @@ const Dashboard = () => {
       <div className="flex justify-center ">
         <img src={logoImage} alt="Logo" className="w-60 m-4" />
       </div>
-      <div>
-        <input type="file" />
-        <button> submit</button>
-      </div>
 
-      {!secondSubmitted ? (
+      {!firstSubmitted ? (
+        <div className="flex justify-center mt-10">
+          <div className="bg-white flex flex-col items-center justify-center rounded-xl p-4  ">
+            <p className="flex justify-center m-4 text-xl ">
+              Hello {localStorage.getItem("username")}
+            </p>
+            <p className="flex justify-center m-4 text-xl ">
+              Please upload picture
+            </p>
+            <input
+              className=" file:bg-beige2 file:hover:bg-grey file:rounded-full file:w-44 file:h-10 file:items-center file:mb-4 file:border-0"
+              type="file"
+              onChange={(e) => {
+                setSelectedFile(e.target.files[0]);
+              }}
+            />
+            <button
+              onClick={handleFirstSubmit}
+              className="bg-beige2 hover:bg-grey rounded-full w-44 h-10 items-center mb-4 "
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+      ) : !secondSubmitted ? (
         <div className="flex justify-center mt-10">
           <div className="bg-white flex flex-col items-center justify-center rounded-xl p-4  ">
             <p className="flex justify-center m-4 text-xl ">
@@ -406,11 +458,6 @@ const Dashboard = () => {
             >
               Update User
             </button>
-          </div>
-          // i need to insert upload picture here
-          <div>
-            <input type="file" />
-            <button>Upload</button>
           </div>
         </div>
       )}
