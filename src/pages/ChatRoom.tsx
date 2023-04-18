@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import socket from "../socket";
 import CardsContext from "../contexts/CardsContext";
 import backgroundImage from "../images/petmate-background-01.svg";
-import SendIcon from '@mui/icons-material/Send';
+import SendIcon from "@mui/icons-material/Send";
 
 const ChatRoom = () => {
   const [username, setUsername] = useState("");
@@ -49,10 +49,10 @@ const ChatRoom = () => {
   }, []);
 
   return (
-    
-    <div className="flex flex-col items-center h-screen bg-center overflow-hidden bg-no-repeat bg-cover bg-white"
-    style={{ backgroundImage: `url(${backgroundImage})` }}>
-      
+    <div
+      className="flex flex-col items-center h-screen bg-center overflow-hidden bg-no-repeat bg-cover bg-white"
+      style={{ backgroundImage: `url(${backgroundImage})` }}
+    >
       <h1 className="text-3xl p-5 font-semibold">ChatRoom</h1>
       <form
         id="join"
@@ -87,27 +87,25 @@ const ChatRoom = () => {
       </form>
       <div id="messages" className=" mt-5">
         <div id="chat-header">
-          <p className="text-md font-semibold rounded-md bg-purewhite">Chatting with: </p>
+          <p className="text-md font-semibold rounded-md bg-purewhite">
+            Chatting with:{" "}
+          </p>
         </div>
-        <div id="chat-body" className="h-80 border my-2 overflow-scroll bg-beige1 rounded-lg md:h-80 md:w-80 lg:w-96">
+        <div
+          id="chat-body"
+          className="h-80 border my-2 overflow-scroll bg-beige1 rounded-lg md:h-80 md:w-80 lg:w-96"
+        >
           {messages.map((message, index) => (
             <div key={index}>
-<<<<<<< HEAD
-              <p className="flex justify-between items-center">
-=======
               <p className="flex justify-between mx-0 rounded-md bg-purewhite text-orange text-sm ">
->>>>>>> caro3
                 <span>{message.username}</span>
                 <span className="text-xs font-thin">{message.time}</span>
               </p>
-<<<<<<< HEAD
-              <p>{message.message}</p>
-              <hr />
-=======
-              <p className="text-md text-black flex justify-normal p-2 mx-2">{message.message}</p>
-              
+              <p className="text-md text-black flex justify-normal p-2 mx-2">
+                {message.message}
+              </p>
+
               <br />
->>>>>>> caro3
             </div>
           ))}
         </div>
@@ -118,20 +116,17 @@ const ChatRoom = () => {
             }}
             type="text"
             placeholder="Hey..."
-<<<<<<< HEAD
-            className="border p-1"
-            value={currentMessage}
-=======
             className="border p-1 rounded-md border-orange lg:w-64"
->>>>>>> caro3
           />
-          <button onClick={sendMessage} className="border ml-2  border-orange px-2 rounded-lg bg-orange text-white">
-           Send <SendIcon fontSize="small"/>
+          <button
+            onClick={sendMessage}
+            className="border ml-2  border-orange px-2 rounded-lg bg-orange text-white"
+          >
+            Send <SendIcon fontSize="small" />
           </button>
         </div>
       </div>
     </div>
-   
   );
 };
 
