@@ -2,7 +2,7 @@ import React from "react";
 
 function DashboardCard() {
   return (
-    <div className="  ">
+    <>
       <div className=" m-2  ">
         <p>Animal :</p>
         <p>Race :</p>
@@ -10,11 +10,11 @@ function DashboardCard() {
         <p>weight :</p>
       </div>
       <div className="m-2">
-        <p className=" text-3xl">Description</p>
+        <p className=" text-xl">Description</p>
         <p>Lorem ipsum dolor sit amet,</p>
       </div>
       <div className="m-2">
-        <p className=" text-3xl">Interests</p>
+        <p className=" text-xl">Interests</p>
         <div className="flex flex-wrap  ">
           <div className="m-1">
             <div className="    ">Run</div>
@@ -28,7 +28,7 @@ function DashboardCard() {
         </div>
       </div>
       <div className="m-2">
-        <p className=" text-3xl">Favorite Foods</p>
+        <p className=" text-xl">Favorite Foods</p>
 
         <div className="flex flex-wrap  ">
           <div className="m-1">
@@ -42,7 +42,7 @@ function DashboardCard() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

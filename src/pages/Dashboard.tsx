@@ -3,6 +3,7 @@ import logoImage from "../images/petmate-newlogo-01.svg";
 import backgroundImage from "../images/petmate-background-01.svg";
 import axios from "axios";
 import { update } from "@react-spring/web";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
   const [name, setName] = useState("");
