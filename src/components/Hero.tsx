@@ -24,7 +24,7 @@ const Hero = () => {
             <input
               className="bg-white"
               type="text"
-              placeholder="download app or subscribe mail?"
+              placeholder="find pets"
             />
             <button>
               <AiOutlineSearch
