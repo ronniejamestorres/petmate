@@ -94,20 +94,27 @@ const ChatRoom = () => {
         <div
           id="chat-body"
           className="h-80 border my-2 overflow-scroll bg-beige1 rounded-lg md:h-80 md:w-80 lg:w-96"
+          style={{
+            overflowY: "auto",
+            display: "flex",
+            flexDirection: "column-reverse",
+          }}
         >
-          {messages.map((message, index) => (
-            <div key={index}>
-              <p className="flex justify-between mx-0 rounded-md bg-purewhite text-orange text-sm ">
-                <span>{message.username}</span>
-                <span className="text-xs font-thin">{message.time}</span>
-              </p>
-              <p className="text-md text-black flex justify-normal p-2 mx-2">
-                {message.message}
-              </p>
-
-              <br />
-            </div>
-          ))}
+          {messages
+            .slice(0)
+            .reverse()
+            .map((message, index) => (
+              <div key={index}>
+                <p className="flex justify-between mx-0 rounded-md bg-purewhite text-orange text-sm ">
+                  <span>{message.username}</span>
+                  <span className=" text-sm">{message.time}</span>
+                </p>
+                <p className="text-md text-black flex justify-normal p-2 mx-2">
+                  {message.message}
+                </p>
+                <br />
+              </div>
+            ))}
         </div>
         <div id="chat-footer" className="">
           <input

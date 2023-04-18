@@ -5,7 +5,7 @@ import "../App.css";
 
 const FooterLanding: React.FC = () => {
   return (
-    <div className="w-full bg-[#FFFF] py-24 md:px-3">
+    <div id="contact" className="w-full bg-[#FFFF] py-24 md:px-3">
       <div className="md:max-w-[1480px] m-auto grid md:grid-cols-5 max-[780px]:grid-cols-2  gap-8 max-w-[600px]  px-4 md:px-0">
         <div className="col-span-2">
           <img src={logoImage} className="h-[25px]" alt="Petmate Logo" />
