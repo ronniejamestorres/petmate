@@ -29,7 +29,7 @@ function App() {
           <Route path="/ForgotPassword" element={<ForgotPassword />}></Route>
           <Route path="/Dashboard" element={<Dashboard />}></Route>
           <Route path="/DashboardTwo" element={<DashboardTwo />}></Route>
-          <Route path="/chatRoom" element={<ChatRoom />}></Route>
+          <Route path="/chatRoom/:id" element={<ChatRoom />}></Route>
           <Route path="/Match" element={<Match />}></Route>
           <Route path="*" element={<Error404 />}></Route>
         </Routes>

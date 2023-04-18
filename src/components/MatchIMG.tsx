@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-function MatchIMG({ picturePath }) {
+function MatchIMG({ picturePath, matchedId }) {
   const navigate = useNavigate();
   const [imageDataURL, setImageDataURL] = useState([]);
 
@@ -34,13 +34,13 @@ function MatchIMG({ picturePath }) {
 
   return (
     <div
-      onClick={() => navigate("/chatroom")}
+      onClick={() => navigate(`/chatroom/${matchedId}`)}
       className=" w-20 h-20  rounded-full bg-beige1 cursor-pointer"
     >
       <img
         className=" rounded-full w-full h-full object-cover"
         src={imageDataURL}
-        alt=""
+        alt="image of match"
       />
     </div>
   );
