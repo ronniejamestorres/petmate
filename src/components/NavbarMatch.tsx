@@ -33,7 +33,7 @@ function NavbarMatch() {
 
           <button
             className="bg-red-400 hover:bg-grey md:px-5 md:py-2 rounded-full "
-            onClick={() => navigate("/Register")}
+            onClick={() => navigate("/")}
           >
             LOG OUT
           </button>
