@@ -12,6 +12,7 @@ import petsImage4 from "../images/pngegg11.png";
 import petsImage5 from "../images/pngegg12.png";
 import petsImage6 from "../images/pngegg13.png";
 import petsImage7 from "../images/pngegg15.png";
+import petsImage8 from "../images/pngegg16.png";
 
 const Dashboard = () => {
   const Navigate = useNavigate();
@@ -430,7 +431,7 @@ const Dashboard = () => {
           </div>
         </div>
       ) : !seventhSubmitted ? (
-        <div className="justify-center grid grid-cols-1 lg:grid-cols-1">
+        <div className="justify-center grid grid-cols-1 lg:grid-cols-1 ">
           <div>
             <div className="col-span-1 lg:col-span-1 flex justify-center z-0  ">
               <div className="">
@@ -442,16 +443,16 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
-          <div className="z-10 col-span-1 lg:col-span-1  bg-white flex flex-col items-center justify-center rounded-xl p-4 ">
+          <div className="z-10 col-span-1 lg:col-span-1   flex flex-col items-center justify-center rounded-xl p-4 ">
             <label>
-              <p className="mb-4 flex justify-center">Describe yourself :</p>
+              <p className="mb-4 flex justify-center"></p>
               <div className="mb-4 flex justify-center">
                 <input
                   type="text"
                   value={description}
                   onChange={handleDescriptionChange}
-                  className="border border-black rounded-2xl p-2 w-72 h-32  "
-                  placeholder="..."
+                  className="border border-black rounded-2xl p-2 w-screen  h-32   "
+                  placeholder="Describe yourself :"
                 />
               </div>
             </label>
@@ -465,41 +466,56 @@ const Dashboard = () => {
           </div>
         </div>
       ) : (
-        <div className=" justify-center  flex-col items-center ">
-          <p className="bg-white p-2 rounded-xl mb-2 ">
-            Thank you, {localStorage.getItem("username")} the {animal} !
-          </p>
-          <p className="bg-white p-2 rounded-xl mb-2">Your are a {race}</p>
-          <p className="bg-white p-2 rounded-xl mb-2">
-            Your are {age} years old{" "}
-          </p>
-          <div className="bg-white p-2 rounded-xl mb-2">
-            <p>Your favorite foods are :</p>
-            {favoriteFoods.map((favoriteFoods, index) => (
-              <p key={index} className="block">
-                {favoriteFoods}
+        <div className=" justify-center grid grid-cols-1 lg:grid-cols-1 ">
+          <div className="col-span-1 lg:col-span-1 flex justify-center   ">
+            <div className="w-screen">
+              <p className="bg-white p-2 rounded-xl mb-2 ">
+                Thank you, {localStorage.getItem("username")} the {animal} !
               </p>
-            ))}
-          </div>
-          <div className="bg-white p-2 rounded-xl mb-2">
-            <p>Your interests are:</p>
-            {interests.map((interest, index) => (
-              <p key={index} className="block">
-                {interest}
+              <p className="bg-white p-2 rounded-xl mb-2">Your are a {race}</p>
+              <p className="bg-white p-2 rounded-xl mb-2">
+                Your are {age} years old{" "}
               </p>
-            ))}
+              <div className="bg-white p-2 rounded-xl mb-2">
+                <p>Your favorite foods are :</p>
+                {favoriteFoods.map((favoriteFoods, index) => (
+                  <p key={index} className="block">
+                    {favoriteFoods}
+                  </p>
+                ))}
+              </div>
+              <div className="bg-white p-2 rounded-xl mb-2">
+                <p>Your interests are:</p>
+                {interests.map((interest, index) => (
+                  <p key={index} className="block">
+                    {interest}
+                  </p>
+                ))}
+              </div>
+              <p className="bg-white p-2 rounded-xl mb-2 overflow-auto">
+                <p>Description :</p>
+                {description}{" "}
+              </p>
+            </div>
           </div>
-          <p className="bg-white p-2 rounded-xl mb-2 overflow-auto">
-            <p>Description :</p>
-            {description}{" "}
-          </p>
-          <div className="flex justify-center">
+          <div className="col-span-1 lg:col-span-1 flex justify-center mb-10">
             <button
               onClick={handleLastSubmit}
-              className="bg-orange hover:bg-grey rounded-full w-44 h-10 items-center mb-4 "
+              className="bg-orange hover:bg-grey rounded-full w-44 h-10 items-center mb-4 z-10"
             >
               Update User
             </button>
+          </div>
+          <div>
+            <div className="col-span-1 lg:col-span-1 flex justify-center z-0  ">
+              <div className="">
+                <img
+                  src={petsImage8}
+                  alt="pets"
+                  className="scale-150 lg:scale-150"
+                />
+              </div>
+            </div>
           </div>
         </div>
       )}
