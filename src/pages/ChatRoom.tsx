@@ -11,6 +11,8 @@ const ChatRoom = () => {
   const [messages, setMessages] = useState([]);
   const { users, match } = useContext(CardsContext);
 
+  console.log("users: ", users);
+
   const joinRoom = (e) => {
     e.preventDefault();
     if (username && room) {
