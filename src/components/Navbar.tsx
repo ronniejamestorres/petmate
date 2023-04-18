@@ -20,10 +20,18 @@ function Navbar() {
 
         <div className="hidden md:flex items-center ">
           <ul className="flex gap-4">
-            <li className="p-4 hover:bg-gray-100 cursor-pointer"><Link to="/">Home</Link></li>
-            <li className="p-4 hover:bg-gray-100 cursor-pointer"><Link to="/Testimonials">Testimonials</Link></li>
-            <li className="p-4 hover:bg-gray-100 cursor-pointer"><Link to="/FAQ">FAQ</Link></li>
-            <li className="p-4 hover:bg-gray-100 cursor-pointer"><Link to="/FooterLanding">Contact</Link></li>
+            <li className="p-4 hover:bg-gray-100 cursor-pointer">
+              <Link to="/#home">Home</Link>
+            </li>
+            <li className="p-4 hover:bg-gray-100 cursor-pointer">
+              <Link to="/#testimonials">Testimonials</Link>
+            </li>
+            <li className="p-4 hover:bg-gray-100 cursor-pointer">
+              <Link to="/#faq">FAQ</Link>
+            </li>
+            <li className="p-4 hover:bg-gray-100 cursor-pointer">
+              <Link to="/#contact">Contact</Link>
+            </li>
           </ul>
         </div>
 
@@ -55,12 +63,18 @@ function Navbar() {
         }
       >
         <ul>
-        
-      <li className="p-4 hover:bg-gray-100 cursor-pointer"><Link to="/">Home</Link></li>
-      <li className="p-4 hover:bg-gray-100 cursor-pointer"><Link to="/Testimonials">Testimonials</Link></li>
-      <li className="p-4 hover:bg-gray-100 cursor-pointer"><Link to="/FAQ">FAQ</Link></li>
-      <li className="p-4 hover:bg-gray-100 cursor-pointer"><Link to="/FooterLanding">Contact</Link></li>
-
+          <li className="p-4 hover:bg-gray-100 cursor-pointer">
+            <Link to="/">Home</Link>
+          </li>
+          <li className="p-4 hover:bg-gray-100 cursor-pointer">
+            <Link to="/Testimonials">Testimonials</Link>
+          </li>
+          <li className="p-4 hover:bg-gray-100 cursor-pointer">
+            <Link to="/FAQ">FAQ</Link>
+          </li>
+          <li className="p-4 hover:bg-gray-100 cursor-pointer">
+            <Link to="/FooterLanding">Contact</Link>
+          </li>
 
           <div className="flex flex-col my-4 gap-3">
             <button

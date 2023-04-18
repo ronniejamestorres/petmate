@@ -1,8 +1,8 @@
 import React from "react";
-import '../App.css'
+import "../App.css";
 const Faqs = () => {
   return (
-    <section className="bg-beige1 text-beige2">
+    <section id="faq" className="bg-beige1 text-beige2">
       <div className="flex flex-col justify-center  p-4 mx-auto md:p-8">
         <p className=" p-2 text-sm font-medium tracking-wider text-center uppercase">
           How it works
