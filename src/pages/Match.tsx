@@ -1,8 +1,10 @@
-import NavbarLogin from "../components/NavbarLogin";
+import ContainerCardCopy from "../components/DashboardCard";
+
 import backgroundImage from "../images/petmate-background-01.svg";
 import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import CardsContext from "../contexts/CardsContext";
+import NavbarMatch from "../components/NavbarMatch";
 
 function Match() {
   const navigate = useNavigate();
@@ -50,7 +52,7 @@ function Match() {
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <div>
-        <NavbarLogin />
+        <NavbarMatch />
       </div>
       <div className=" flex items-center justify-center    ">
         <div className="lg:w-11/12 grid grid-cols-1 lg:grid-cols-1 lg:mt-20 ">
