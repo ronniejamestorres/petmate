@@ -5,11 +5,8 @@ import DashboardGallery from "../components/DashboardGallery";
 import ImageDisplay from "../components/ImageDisplay";
 import { FaJedi } from "react-icons/fa";
 import React, { useState, useContext } from "react";
-import { CardsContext } from "../contexts/CardsContext";
 
 function Match() {
-  const { users, match } = useContext(CardsContext);
-
   return (
     <div
       className="h-screen bg-center bg-repeat  bg-white "
