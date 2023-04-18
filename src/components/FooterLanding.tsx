@@ -42,16 +42,13 @@ const FooterLanding: React.FC = () => {
 
         <div className="max-[780px]:col-span-2">
           <h3 className="text-2xl font-bold">Subscribe</h3>
-          <h3 className="py-2 text-[#6D737A]">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br></br>{" "}
-            vestibulum gravida in, feugiat auctor felis.
-          </h3>
+          
           <form className="py-4">
             <input
               className="bg-[#F2F3F4] p-4 w-full rounded-full"
               placeholder="Email here"
             />
-            <button className="max-[780px]:w-full my-4 px-5 py-3 rounded-full bg-beige2 text-white font-medium">
+            <button className="max-[780px]:w-full my-4 px-5 py-3 rounded-full bg-beige2 text-white font-medium hover:bg-grey">
               Subscribe Now
             </button>
           </form>

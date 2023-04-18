@@ -4,6 +4,7 @@ import Cards from "../components/Cards";
 import backgroundImage from "../images/petmate-background-01.svg";
 import SwipeResult from "../components/SwipeResult";
 
+
 function ShowAll() {
   if (localStorage.getItem("x-auth-token") === null) {
     window.location.href = "/login";

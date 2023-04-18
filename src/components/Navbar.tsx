@@ -20,16 +20,16 @@ function Navbar() {
 
         <div className="hidden md:flex items-center ">
           <ul className="flex gap-4">
-            <li className="p-4 hover:bg-gray-100 cursor-pointer">
+            <li className="p-4 text-sm hover:bg-gray-100 hover:text-orange rounded-full cursor-pointer">
               <Link to="/#home">Home</Link>
             </li>
-            <li className="p-4 hover:bg-gray-100 cursor-pointer">
+            <li className="p-4 text-sm hover:bg-gray-100 hover:text-orange rounded-full cursor-pointer">
               <Link to="/#testimonials">Testimonials</Link>
             </li>
-            <li className="p-4 hover:bg-gray-100 cursor-pointer">
+            <li className="p-4 text-sm hover:bg-gray-100 hover:text-orange rounded-full cursor-pointer">
               <Link to="/#faq">FAQ</Link>
             </li>
-            <li className="p-4 hover:bg-gray-100 cursor-pointer">
+            <li className="p-4 text-sm hover:bg-gray-100 hover:text-orange rounded-full cursor-pointer">
               <Link to="/#contact">Contact</Link>
             </li>
           </ul>
@@ -63,16 +63,16 @@ function Navbar() {
         }
       >
         <ul>
-          <li className="p-4 hover:bg-gray-100 cursor-pointer">
+          <li className="p-4 hover:bg-gray-100 hover:text-orange cursor-pointer">
             <Link to="/">Home</Link>
           </li>
-          <li className="p-4 hover:bg-gray-100 cursor-pointer">
+          <li className="p-4 hover:bg-gray-100 hover:text-orange cursor-pointer">
             <Link to="/#testimonials">Testimonials</Link>
           </li>
-          <li className="p-4 hover:bg-gray-100 cursor-pointer">
+          <li className="p-4 hover:bg-gray-100 hover:text-orange cursor-pointer">
             <Link to="/#faq">FAQ</Link>
           </li>
-          <li className="p-4 hover:bg-gray-100 cursor-pointer">
+          <li className="p-4 hover:bg-gray-100 hover:text-orange cursor-pointer">
             <Link to="/#contact">Contact</Link>
           </li>
 

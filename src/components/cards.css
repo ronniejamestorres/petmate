@@ -1,20 +1,22 @@
 .card{
   position: relative;
-  width: 600px;
+  width: 500px;
   padding: 20px;
   max-width: 60vw;
-  height: 50vh;
+  height: 40vh;
+  margin-top: 5vh;
   background-size: cover;
   background-position: center;
-  border-radius: 20px;
-  box-shadow: 0 20px 25px 0 #a47e4a;
+  border-radius: 45px;
+  box-shadow: inset 0px 0px 43px -3px rgba(0,0,0,0.1),0px 13px 20px -5px #a47e4a;
+
 }
     
 
 
 .cardPet__container{
     display: flex;
-    margin-top: 5vh;
+    margin-top: 10vh;
     justify-content: center;
    
 }
@@ -33,7 +35,7 @@
     width: 350px;
     max-width: 60vw;
     height: 50vh;
-      
+    box-shadow: inset 0px 0px 43px -3px rgba(0,0,0,0.1),0px 13px 20px -5px #a47e4a; 
     
   }
 
@@ -44,10 +46,11 @@
 @media (min-width: 1024px) {
     .card {
       width: 300px;
-      max-width: 30vw;
+      max-width: 50vw;
       height: 50vh;
+      margin-top: 10vh;
       
-      
+      overflow: hidden;
     }
   
     
