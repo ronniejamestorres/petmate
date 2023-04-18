@@ -112,7 +112,6 @@ const ChatRoom = () => {
                 <p className="text-md text-black flex justify-normal p-2 mx-2">
                   {message.message}
                 </p>
-                <br />
               </div>
             ))}
         </div>
