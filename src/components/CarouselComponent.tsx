@@ -47,14 +47,19 @@ function CarouselComponent() {
       <h1 className="flex justify-center pt-8 pb-6 font-bold text-lg text-brown lg:text-2xl">
         G a l l e r y
       </h1>
-      <div className="relative flex items-center justify-center w-full">
-        <div className="flex items-center justify-start rounded-full w-2/3  h-64 gap-8 py-4 mx-auto overflow-auto md:rounded-lg md:w-2/3 md:h-80 lg:gap-8 lg:w-1/2 lg:h-full lg:rounded-lg">
-          <div className="relative flex flex-shrink-0 w-full sm:w-auto">
+      <div className="relative flex items-center justify-center ">
+        <div className="flex items-center justify-start rounded-full w-2/3 mt-2 overflow-auto  md:w-1/4 md:rounded-md md: mt-10 lg:w-1/6 md:mt-3 lg:rounded-full "
+        style={{
+          borderRadius: '129px',
+          background: 'linear-gradient(145deg, #ffad59, #d8924b)',
+          boxShadow: '20px 20px 60px #cc8a47, -20px -20px 60px #ffba5f',
+        }}>
+          <div className="relative  w-full ">
             {imageDataURLs.length > 0 ? (
               imageDataURLs.map((imageDataURL, index) => (
                 <img
                   key={index}
-                  className="object-cover object-center h-80 aspect-square"
+                  className="object-cover object-center h-64 aspect-square"
                   src={imageDataURL}
                   alt={`User Profile ${index + 1}`}
                 />

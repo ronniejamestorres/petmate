@@ -1,14 +1,15 @@
 .card{
   position: relative;
   width: 500px;
-  padding: 20px;
+  padding: 10px;
   max-width: 60vw;
-  height: 40vh;
-  margin-top: 5vh;
+  height: 45vh;
+  margin-top: 3vh;
   background-size: cover;
   background-position: center;
   border-radius: 45px;
   box-shadow: inset 0px 0px 43px -3px rgba(0,0,0,0.1),0px 13px 20px -5px #a47e4a;
+  overflow: hidden;
 
 }
     
@@ -16,7 +17,7 @@
 
 .cardPet__container{
     display: flex;
-    margin-top: 10vh;
+   
     justify-content: center;
    
 }
@@ -26,16 +27,23 @@
 
 .swipe { 
     position:absolute;
+    
 
 }
+
+  
+    
+  
 
 /* Pour les écrans d'iPad en mode paysage et portrait */
 @media (min-width: 768px) {
 .card {
-    width: 350px;
-    max-width: 60vw;
+    width: 400px;
+    
     height: 50vh;
+    margin-top: 1vh;
     box-shadow: inset 0px 0px 43px -3px rgba(0,0,0,0.1),0px 13px 20px -5px #a47e4a; 
+    
     
   }
 
@@ -45,10 +53,10 @@
 /* Pour les écrans d'ordinateur de bureau et d'ordinateur portable */
 @media (min-width: 1024px) {
     .card {
-      width: 300px;
-      max-width: 50vw;
+      width: 350px;
+      
       height: 50vh;
-      margin-top: 10vh;
+      margin-top: 2vh;
       
       overflow: hidden;
     }
