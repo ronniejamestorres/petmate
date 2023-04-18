@@ -37,10 +37,11 @@ const LoginForm = () => {
         })
         .then((response) => {
           //login successful
-          
+
           localStorage.setItem("x-auth-token", response.data.token);
           localStorage.setItem("username", username);
           localStorage.setItem("loggedIn", response.data._id);
+          localStorage.setItem("loggedInData", JSON.stringify(response.data));
 
           setErrorString("Success");
           Navigate("/ShowAll");

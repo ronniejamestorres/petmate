@@ -42,13 +42,14 @@ export const CardsProvider = ({ children }) => {
         console.log(err);
       }
     };
-   
-     fetchLoggedInUser();
+
+    fetchLoggedInUser();
   }, []);
 
   const swiped = (direction, idSwiped) => {
     console.log(`swiped ${idSwiped} to the ${direction}`);
     setLastDirection(direction);
+
     const swiped = users.filter((user) => user._id === idSwiped);
     setSwipedUser(swiped[0]);
     if (direction === "right") {
