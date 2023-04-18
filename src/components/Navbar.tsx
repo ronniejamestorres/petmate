@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import logoImage from "../images/petmate-newlogo-01.svg";
 
@@ -19,11 +20,10 @@ function Navbar() {
 
         <div className="hidden md:flex items-center ">
           <ul className="flex gap-4">
-            <li>Home</li>
-            <li>About</li>
-            <li>Support</li>
-            <li>Platform</li>
-            <li>Pricing</li>
+            <li className="p-4 hover:bg-gray-100 cursor-pointer"><Link to="/">Home</Link></li>
+            <li className="p-4 hover:bg-gray-100 cursor-pointer"><Link to="/Testimonials">Testimonials</Link></li>
+            <li className="p-4 hover:bg-gray-100 cursor-pointer"><Link to="/FAQ">FAQ</Link></li>
+            <li className="p-4 hover:bg-gray-100 cursor-pointer"><Link to="/FooterLanding">Contact</Link></li>
           </ul>
         </div>
 
@@ -35,7 +35,7 @@ function Navbar() {
             LOGIN
           </button>
           <button
-            className="bg-beige3 hover:bg-grey md:px-5 md:py-2 rounded-full "
+            className="bg-orange hover:bg-grey md:px-5 md:py-2 rounded-full "
             onClick={() => navigate("/Register")}
           >
             REGISTER
@@ -55,11 +55,13 @@ function Navbar() {
         }
       >
         <ul>
-          <li className="p-4 hover:bg-gray-100">Home</li>
-          <li className="p-4 hover:bg-gray-100">About</li>
-          <li className="p-4 hover:bg-gray-100">Support</li>
-          <li className="p-4 hover:bg-gray-100">Platform</li>
-          <li className="p-4 hover:bg-gray-100">Pricing</li>
+        
+      <li className="p-4 hover:bg-gray-100 cursor-pointer"><Link to="/">Home</Link></li>
+      <li className="p-4 hover:bg-gray-100 cursor-pointer"><Link to="/Testimonials">Testimonials</Link></li>
+      <li className="p-4 hover:bg-gray-100 cursor-pointer"><Link to="/FAQ">FAQ</Link></li>
+      <li className="p-4 hover:bg-gray-100 cursor-pointer"><Link to="/FooterLanding">Contact</Link></li>
+
+
           <div className="flex flex-col my-4 gap-3">
             <button
               className="bg-beige2 px-3 py-2 rounded-full hover:bg-grey "
@@ -68,7 +70,7 @@ function Navbar() {
               LOGIN
             </button>
             <button
-              className="bg-beige3 px-3 py-2 rounded-full hover:bg-grey "
+              className="bg-orange px-3 py-2 rounded-full hover:bg-grey "
               onClick={() => navigate("/Register")}
             >
               REGISTER
