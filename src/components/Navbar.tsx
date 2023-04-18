@@ -67,13 +67,13 @@ function Navbar() {
             <Link to="/">Home</Link>
           </li>
           <li className="p-4 hover:bg-gray-100 cursor-pointer">
-            <Link to="/Testimonials">Testimonials</Link>
+            <Link to="/#testimonials">Testimonials</Link>
           </li>
           <li className="p-4 hover:bg-gray-100 cursor-pointer">
-            <Link to="/FAQ">FAQ</Link>
+            <Link to="/#faq">FAQ</Link>
           </li>
           <li className="p-4 hover:bg-gray-100 cursor-pointer">
-            <Link to="/FooterLanding">Contact</Link>
+            <Link to="/#contact">Contact</Link>
           </li>
 
           <div className="flex flex-col my-4 gap-3">
