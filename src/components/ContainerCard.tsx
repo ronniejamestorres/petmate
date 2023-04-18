@@ -35,7 +35,7 @@ function ContainerCard() {
 
   return (
     <div className="flex justify-center ">
-      <div className="bg-purewhite text-black text-center text-sm rounded-lg border border-beige2 p-8  m-10  lg:text-md lg:p-2 lg:m-4">
+      <div className="bg-purewhite text-black text-center text-md rounded-lg border border-beige2 p-8  m-2  md:m-10 lg:text-md lg:p-2 lg:m-4">
         <p>
           <strong>Animal</strong> <br />
           {data?.characteristics.animal} -{" "}
