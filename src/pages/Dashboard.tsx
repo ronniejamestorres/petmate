@@ -205,7 +205,7 @@ const Dashboard = () => {
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <div className="flex justify-center ">
-        <img src={logoImage} alt="Logo" className="w-60 m-4" />
+        <img src={logoImage} alt="Logo" className="w-60 m-4 z-40" />
       </div>
 
       {!firstSubmitted ? (
@@ -317,8 +317,8 @@ const Dashboard = () => {
           </div>
         </div>
       ) : !fifthSubmitted ? (
-        <div className="justify-center mt-10 grid grid-cols-3 lg:grid-cols-2">
-          <div className="z-40  col-span-2 lg:col-span-1 bg-white w-fit h-fit flex flex-col items-center rounded-xl p-4">
+        <div className="justify-center mt-10 grid grid-cols-2 lg:grid-cols-2">
+          <div className="z-30  col-span-2 lg:col-span-1   h-fit flex flex-col items-center rounded-xl p-4 w-screen">
             <label>
               <p className="mb-4 flex justify-center">
                 What are your favorite foods?
@@ -365,7 +365,7 @@ const Dashboard = () => {
               Submit
             </button>
           </div>
-          <div className=" col-span-1 lg:col-span-1 pt-10 ">
+          <div className=" col-span-1 lg:col-span-1  w-screen">
             <img
               src={petsImage5}
               alt="pets"
