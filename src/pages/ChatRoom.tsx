@@ -3,15 +3,16 @@ import socket from "../socket";
 import CardsContext from "../contexts/CardsContext";
 import backgroundImage from "../images/petmate-background-01.svg";
 import SendIcon from "@mui/icons-material/Send";
+import { useParams } from "react-router-dom";
 
 const ChatRoom = () => {
-  const [username, setUsername] = useState("");
+  const username = useState(localStorage.getItem("username"));
   const [room, setRoom] = useState("");
   const [currentMessage, setCurrentMessage] = useState("");
   const [messages, setMessages] = useState([]);
-  const { users, match } = useContext(CardsContext);
-
-  console.log("users: ", users);
+  const { users } = useContext(CardsContext);
+  const { id } = useParams<{ id: string }>();
+  // console.log("matches: ", users && users[0].matches);
 
   const joinRoom = (e) => {
     e.preventDefault();
@@ -56,19 +57,11 @@ const ChatRoom = () => {
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <h1 className="text-3xl p-5 font-semibold">ChatRoom</h1>
-      <form
-        id="join"
-        className="flex items-center flex-col justify-center gap-1"
-      >
-        <input
-          onChange={(e) => {
-            setUsername(e.target.value);
-          }}
-          type="text"
-          id="user"
-          placeholder="your name here"
-          className=" border p-1 border-orange rounded-lg bg-beige1"
-        />
+      <p className="text-md font-semibold rounded-md bg-purewhite my-2 px-2">
+        <span>Hello </span>
+        <span className=" text-orange text-xl">{username}</span>
+      </p>
+      <form id="join" className=" items-center flex-col justify-center gap-1">
         <input
           onChange={(e) => {
             setRoom(e.target.value);
@@ -95,7 +88,7 @@ const ChatRoom = () => {
         </div>
         <div
           id="chat-body"
-          className="h-80 border my-2 overflow-scroll bg-beige1 rounded-lg md:h-80 md:w-80 lg:w-96"
+          className="h-96 border my-2 overflow-scroll bg-beige1 rounded-lg md:h-96 md:w-80 lg:w-96"
           style={{
             overflowY: "auto",
             display: "flex",

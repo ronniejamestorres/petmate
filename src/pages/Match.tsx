@@ -1,14 +1,49 @@
-import ContainerCardCopy from "../components/DashboardCard";
 import NavbarLogin from "../components/NavbarLogin";
 import backgroundImage from "../images/petmate-background-01.svg";
-import DashboardGallery from "../components/DashboardGallery";
-import ImageDisplay from "../components/ImageDisplay";
-import { FaJedi } from "react-icons/fa";
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import CardsContext from "../contexts/CardsContext";
 
 function Match() {
   const navigate = useNavigate();
+  const { users } = useContext(CardsContext);
+  const loggedInUser = localStorage.getItem("username");
+  const loggedInId = localStorage.getItem("loggedIn");
+  const [matches, setmatches] = useState([]);
+  const [picturesPaths, setpicturesPaths] = useState([]);
+
+  useEffect(() => {
+    const getMatches = () => {
+      if (users) {
+        const user = users.find((user) => user._id === loggedInId);
+        if (user) {
+          setmatches(user.matches);
+        }
+      }
+    };
+    getMatches();
+    const getPicturesPaths = () => {
+      if (matches) {
+        matches.map((match) => {
+          const user = users.find((user) => user._id === match);
+          if (user) {
+            setpicturesPaths(user.pictures);
+          }
+        });
+      }
+      console.log("picturesPaths: ", picturesPaths);
+    };
+    getPicturesPaths();
+    const fetchPictures = () => {
+      if (picturesPaths) {
+        picturesPaths.map((path) => {
+          const picture = fetch(path);
+          console.log("picture: ", picture);
+        });
+      }
+    };
+  }, [users, matches]);
+
   return (
     <div
       className="h-screen bg-center bg-repeat  bg-white "
@@ -24,7 +59,11 @@ function Match() {
               onClick={() => navigate("/chatroom")}
               className=" w-20 h-20  rounded-full bg-beige1"
             >
-              X
+              <img
+                className=" rounded-full w-full h-full object-cover"
+                src="/emptyTemplate.jpg"
+                alt=""
+              />
             </div>
             <div
               onClick={() => navigate("/chatroom")}
