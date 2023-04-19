@@ -18,7 +18,9 @@ export const CardsProvider = ({ children }) => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await axios.get("http://localhost:4000/users/getall");
+        const res = await axios.get(
+          "http://wave.nodestarter.eu:4000/users/getall"
+        );
         setUsers(res.data);
       } catch (err) {
         console.log(err);
@@ -31,7 +33,7 @@ export const CardsProvider = ({ children }) => {
     const fetchLoggedInUser = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:4000/users/getone/${localStorage.getItem(
+          `http://wave.nodestarter.eu:4000/users/getone/${localStorage.getItem(
             "loggedIn"
           )}`
         );
@@ -40,17 +42,19 @@ export const CardsProvider = ({ children }) => {
         console.log(err);
       }
     };
+
     fetchLoggedInUser();
   }, []);
 
   const swiped = (direction, idSwiped) => {
     console.log(`swiped ${idSwiped} to the ${direction}`);
     setLastDirection(direction);
+
     const swiped = users.filter((user) => user._id === idSwiped);
     setSwipedUser(swiped[0]);
     if (direction === "right") {
       axios.post(
-        `http://localhost:4000/users/like/${idSwiped}`,
+        `http://wave.nodestarter.eu:4000/users/like/${idSwiped}`,
         {},
         {
           headers: {

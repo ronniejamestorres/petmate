@@ -1,38 +1,41 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { Link } from "react-router-dom";
-
 import logoImage from "../images/petmate-newlogo-01.svg";
 
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 
-function Header() {
+function NavbarLogin() {
   const navigate = useNavigate();
   const [toggle, setToggle] = useState(false); //true open and false close
   const handleClick = () => setToggle(!toggle);
 
   return (
-    <nav className="w-full relative h-[80px] bg-beige1 border-b shadow-md md:px-3">
+    <nav className="w-full lg:fixed h-[80px] bg-beige1 border-b shadow-md md:px-3">
       <div className="md:max-w-[1480px] max-w-[600px] m-auto w-full h-full flex justify-between items-center md:px-0 px-4">
-        <img src={logoImage} alt="Logo" className="h-[25px]" />
+        <img
+          src={logoImage}
+          alt="Logo"
+          className="h-[25px] hover:scale-125"
+          onClick={() => navigate("/")}
+        />
 
-        
-        
+        <div className="hidden md:flex items-center "></div>
 
         <div className="hidden md:flex gap-2">
           <button
             className="bg-beige2 hover:bg-grey md:px-5 md:py-2 rounded-full"
-            onClick={() => navigate("/dashboardtwo")}
+            onClick={() => navigate("/")}
           >
-            DASHBOARD
+            HOME
           </button>
+
           <button
-            className="bg-orange hover:bg-grey md:px-5 md:py-2 rounded-full "
-            onClick={() => navigate("/match")}
+            className="bg-beige3 hover:bg-grey md:px-5 md:py-2 rounded-full "
+            onClick={() => navigate("/Register")}
           >
-            MATCHES
+            REGISTER
           </button>
         </div>
 
@@ -49,20 +52,18 @@ function Header() {
         }
       >
         <ul>
-          
-
           <div className="flex flex-col my-4 gap-3">
             <button
               className="bg-beige2 px-3 py-2 rounded-full hover:bg-grey "
-              onClick={() => navigate("/dashboardtwo")}
+              onClick={() => navigate("/")}
             >
-              DASHBOARD
+              HOME
             </button>
             <button
-              className="bg-orange px-3 py-2 rounded-full hover:bg-grey "
-              onClick={() => navigate("/match")}
+              className="bg-beige3 px-3 py-2 rounded-full hover:bg-grey "
+              onClick={() => navigate("/Register")}
             >
-              MATCHES
+              REGISTER
             </button>
           </div>
         </ul>
@@ -71,4 +72,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default NavbarLogin;

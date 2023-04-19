@@ -3,13 +3,28 @@ import CardUser from "react-tinder-card";
 import "../components/cards.css";
 import UserCard from "./UserCard";
 import CardsContext from "../contexts/CardsContext";
+import Confetti from "react-confetti";
 
 function Cards() {
-  const { users, lastDirection, swiped, outOfFrame } =
+  const { users, lastDirection, swiped, outOfFrame, match } =
     React.useContext(CardsContext);
+
+  const [showConfetti, setShowConfetti] = useState(false); // State pour gérer l'affichage du Confetti
+
+  useEffect(() => {
+    // Mettre à jour le state du Confetti lorsque le message "You matched with" est affiché
+    if (match) {
+      setShowConfetti(true);
+      // Masquer le Confetti après 5 secondes
+      setTimeout(() => {
+        setShowConfetti(false);
+      }, 5000);
+    }
+  }, [match]);
 
   return (
     <div className="cardPet__container">
+      {match ? showConfetti && <Confetti tweenDuration={5000} /> : null}
       {
         // creating a card with "react-tinder-card" npm package for each user array element
         users.map((user) => (

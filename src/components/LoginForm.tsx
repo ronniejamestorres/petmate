@@ -37,10 +37,11 @@ const LoginForm = () => {
         })
         .then((response) => {
           //login successful
-          console.log("login response data: ", response.data);
+
           localStorage.setItem("x-auth-token", response.data.token);
           localStorage.setItem("username", username);
           localStorage.setItem("loggedIn", response.data._id);
+          localStorage.setItem("loggedInData", JSON.stringify(response.data));
 
           setErrorString("Success");
           Navigate("/ShowAll");
@@ -110,7 +111,7 @@ const LoginForm = () => {
         />
         <Button
           id=""
-          className=" rounded-full w-44 h-10 items-center text-xs   "
+          className=" rounded-full w-44 pb-10 items-center text-xs   "
           text="Forgot password"
           onClick={handleForgetPassword}
           type="submit"

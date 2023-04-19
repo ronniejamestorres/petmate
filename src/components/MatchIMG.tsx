@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
-
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const UserCard = ({ user }) => {
-  const [imageDataURL, setImageDataURL] = useState("");
+function MatchIMG({ picturePath, matchedId }) {
   const navigate = useNavigate();
+  const [imageDataURL, setImageDataURL] = useState([]);
 
-  //using the backend route for fetching the image
   useEffect(() => {
     const fetchPictures = async (path) => {
       try {
@@ -30,32 +28,22 @@ const UserCard = ({ user }) => {
       }
     };
 
-    fetchPictures(user.pictures[0]);
-
     //call the function with the prop received from the 'cards' component
-    //if the user has no picture yet a profile template picture is displayed
-    if (user.pictures && user.pictures.length > 0) {
-      fetchPictures(user.pictures[0]);
-    } else setImageDataURL("../public/emptyTemplate.jpg");
-  }, [user]);
+    fetchPictures(picturePath);
+  }, [picturePath]);
 
   return (
     <div
-      className="card flex"
-      style={{
-        backgroundImage: `url(${imageDataURL})`,
-      }}
+      onClick={() => navigate(`/chatroom/${matchedId}`)}
+      className=" w-20 h-20  rounded-full bg-beige1 cursor-pointer"
     >
-      <div>
-        <h3
-          onClick={() => navigate(`/ShowOne/${user._id}`)}
-          className="flex items-center justify-start text-purewhite rounded-md bg-orange font-bold cursor-pointer"
-        >
-          {user.username}
-        </h3>
-      </div>
+      <img
+        className=" rounded-full w-full h-full object-cover"
+        src={imageDataURL}
+        alt="image of match"
+      />
     </div>
   );
-};
+}
 
-export default UserCard;
+export default MatchIMG;

@@ -1,31 +1,67 @@
 .card{
   position: relative;
-  width: 600px;
-  padding: 20px;
-  max-width: 85vw;
-  height: 50vh;
+  width: 500px;
+  padding: 10px;
+  max-width: 60vw;
+  height: 45vh;
+  margin-top: 3vh;
   background-size: cover;
   background-position: center;
-  border-radius: 20px;
-  box-shadow: 0 20px 25px 0 #a47e4a;
+  border-radius: 45px;
+  box-shadow: inset 0px 0px 43px -3px rgba(0,0,0,0.1),0px 13px 20px -5px #a47e4a;
+  overflow: hidden;
+
 }
     
-.card h3 {
-    position: absolute;
-    bottom: 10px;
-    color: white;
-}   
+
 
 .cardPet__container{
     display: flex;
-    margin-top: 5vh;
+   
     justify-content: center;
    
 }
 
 
+
+
 .swipe { 
-    position: absolute;
+    position:absolute;
+    
 
 }
+
+  
+    
+  
+
+/* Pour les écrans d'iPad en mode paysage et portrait */
+@media (min-width: 768px) {
+.card {
+    width: 400px;
+    
+    height: 50vh;
+    margin-top: 1vh;
+    box-shadow: inset 0px 0px 43px -3px rgba(0,0,0,0.1),0px 13px 20px -5px #a47e4a; 
+    
+    
+  }
+
+  
+}
+
+/* Pour les écrans d'ordinateur de bureau et d'ordinateur portable */
+@media (min-width: 1024px) {
+    .card {
+      width: 350px;
+      
+      height: 50vh;
+      margin-top: 2vh;
+      
+      overflow: hidden;
+    }
+  
+    
+  }
+  
   

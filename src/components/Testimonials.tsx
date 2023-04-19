@@ -5,6 +5,7 @@ import "../App.css";
 function Testimonials() {
   return (
     <section
+      id="testimonials"
       className="bg-beige1 text-black"
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >

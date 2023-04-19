@@ -47,7 +47,7 @@ const SubscribeOne = () => {
         })
         .then((response) => {
           console.log(response);
-          NavigateTo("/login");
+          NavigateTo("/dashboard");
         })
         .catch((error) => {
           console.log(error.message);

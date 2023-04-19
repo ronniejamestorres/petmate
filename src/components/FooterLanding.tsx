@@ -5,7 +5,7 @@ import "../App.css";
 
 const FooterLanding: React.FC = () => {
   return (
-    <div className="w-full bg-[#FFFF] py-24 md:px-3">
+    <div id="contact" className="w-full bg-[#FFFF] py-24 md:px-3">
       <div className="md:max-w-[1480px] m-auto grid md:grid-cols-5 max-[780px]:grid-cols-2  gap-8 max-w-[600px]  px-4 md:px-0">
         <div className="col-span-2">
           <img src={logoImage} className="h-[25px]" alt="Petmate Logo" />
@@ -42,16 +42,13 @@ const FooterLanding: React.FC = () => {
 
         <div className="max-[780px]:col-span-2">
           <h3 className="text-2xl font-bold">Subscribe</h3>
-          <h3 className="py-2 text-[#6D737A]">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br></br>{" "}
-            vestibulum gravida in, feugiat auctor felis.
-          </h3>
+          
           <form className="py-4">
             <input
               className="bg-[#F2F3F4] p-4 w-full rounded-full"
               placeholder="Email here"
             />
-            <button className="max-[780px]:w-full my-4 px-5 py-3 rounded-full bg-beige2 text-white font-medium">
+            <button className="max-[780px]:w-full my-4 px-5 py-3 rounded-full bg-beige2 text-white font-medium hover:bg-grey">
               Subscribe Now
             </button>
           </form>
