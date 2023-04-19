@@ -28,24 +28,14 @@ function DashboardGallery() {
 
   return (
     <div className="grid grid-cols-2 lg:grid-cols-2 gap-4">
-      <div className=" w-40 h-40 bg-beige3 rounded-full relative   hover:scale-125 overflow-hidden">
-        <div className="w-40 h-40  absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex justify-center items-center">
-          <label htmlFor="upload1">
-            {image1 ? (
-              <img src={image1} alt="Uploaded" className="w-full h-full " />
-            ) : (
-              <p className="text-4xl font-bold text-beige1">+</p>
-            )}
-          </label>
-          <input
-            type="file"
-            id="upload1"
-            style={{ display: "none" }}
-            accept="image/*"
-            onChange={handleUpload1}
-          />
+      {
+        <div className=" w-40 h-40 bg-beige3 rounded-full relative   hover:scale-125 overflow-hidden">
+          <div className="w-40 h-40  absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex justify-center items-center">
+            <p className="text-4xl font-bold text-beige1">+</p>
+            // here comes the image fetching from the database
+          </div>
         </div>
-      </div>
+      }
       <div className="w-40 h-40 bg-beige3 rounded-full relative   hover:scale-125 overflow-hidden">
         <div className="w-40 h-40  absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex justify-center items-center ">
           <label htmlFor="upload2">
