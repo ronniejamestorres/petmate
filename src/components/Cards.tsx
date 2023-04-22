@@ -5,6 +5,18 @@ import UserCard from "./UserCard";
 import CardsContext from "../contexts/CardsContext";
 import Confetti from "react-confetti";
 
+interface User {
+  _id: string;
+  username: string;
+  liking: string[]; // Assuming that the liking property is an array of strings
+  // Add other properties as needed
+}
+
+interface ContextValue {
+  users: User[]; // Use the User interface here
+  // ... rest of the properties
+}
+
 function Cards() {
   const { users, lastDirection, swiped, outOfFrame, match } =
     React.useContext(CardsContext);
@@ -27,7 +39,7 @@ function Cards() {
       {match ? showConfetti && <Confetti tweenDuration={5000} /> : null}
       {
         // creating a card with "react-tinder-card" npm package for each user array element
-        users.map((user) => (
+        users.map((user: User) => (
           <CardUser
             className="swipe"
             key={user._id}

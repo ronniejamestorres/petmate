@@ -1,19 +1,36 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect, FC } from "react";
 import axios from "axios";
 
-const CardsContext = createContext({
-  user: [],
+interface ContextValue {
+  users: any;
+  loggedInUser: any;
+  lastDirection: string;
+  swiped: (direction: string, idSwiped: string) => void;
+  outOfFrame: (username: string) => void;
+  match: boolean;
+  swipedUser: any;
+}
+
+const CardsContext = createContext<ContextValue>({
+  users: [],
+  loggedInUser: {},
   lastDirection: "",
   swiped: () => {},
   outOfFrame: () => {},
+  swipedUser: {},
+  match: false,
 });
 
-export const CardsProvider = ({ children }) => {
-  const [users, setUsers] = useState([]);
-  const [loggedInUser, setLoggedInUser] = useState({});
-  const [lastDirection, setLastDirection] = useState();
-  const [swipedUser, setSwipedUser] = useState({});
-  const [match, setMatch] = useState(false);
+interface CardsProviderProps {
+  children: React.ReactNode;
+}
+
+export const CardsProvider: FC<CardsProviderProps> = ({ children }) => {
+  const [users, setUsers] = useState<any[]>([]);
+  const [loggedInUser, setLoggedInUser] = useState<any>({});
+  const [lastDirection, setLastDirection] = useState<string>("");
+  const [swipedUser, setSwipedUser] = useState<any>({});
+  const [match, setMatch] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -46,7 +63,7 @@ export const CardsProvider = ({ children }) => {
     fetchLoggedInUser();
   }, []);
 
-  const swiped = (direction, idSwiped) => {
+  const swiped = (direction: string, idSwiped: string) => {
     console.log(`swiped ${idSwiped} to the ${direction}`);
     setLastDirection(direction);
 
@@ -58,7 +75,7 @@ export const CardsProvider = ({ children }) => {
         {},
         {
           headers: {
-            "x-auth-token": localStorage.getItem("x-auth-token"),
+            "x-auth-token": localStorage.getItem("x-auth-token") ?? "",
           },
         }
       );
@@ -70,7 +87,7 @@ export const CardsProvider = ({ children }) => {
     }
   };
 
-  const outOfFrame = (name) => {
+  const outOfFrame = (name: string) => {
     console.log(name + " left the screen!");
   };
 
