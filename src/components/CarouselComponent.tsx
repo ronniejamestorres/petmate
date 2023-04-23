@@ -3,6 +3,12 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import CardsContext from "../contexts/CardsContext";
 
+interface User {
+  _id: string;
+  username: string;
+  pictures: string[];
+}
+
 function CarouselComponent() {
   const { users } = useContext(CardsContext);
   const { id } = useParams<{ id: string }>();
@@ -32,7 +38,7 @@ function CarouselComponent() {
     };
 
     // Find the user by id
-    const user = users.find((user) => user._id === id);
+    const user = users.find((user: User) => user._id === id);
 
     if (user && user.pictures && user.pictures.length > 0) {
       fetchPictures(user.pictures[0]);
@@ -48,12 +54,14 @@ function CarouselComponent() {
         G a l l e r y
       </h1>
       <div className="relative flex items-center justify-center ">
-        <div className="flex items-center justify-start rounded-full w-2/3 mt-2 overflow-auto  md:w-1/4 md:rounded-md md: mt-10 lg:w-1/6 md:mt-3 lg:rounded-full "
-        style={{
-          borderRadius: '129px',
-          background: 'linear-gradient(145deg, #ffad59, #d8924b)',
-          boxShadow: '20px 20px 60px #cc8a47, -20px -20px 60px #ffba5f',
-        }}>
+        <div
+          className="flex items-center justify-start rounded-full w-2/3 overflow-auto  md:w-1/4 md:rounded-md md: mt-10 lg:w-1/6 md:mt-3 lg:rounded-full "
+          style={{
+            borderRadius: "129px",
+            background: "linear-gradient(145deg, #ffad59, #d8924b)",
+            boxShadow: "20px 20px 60px #cc8a47, -20px -20px 60px #ffba5f",
+          }}
+        >
           <div className="relative  w-full ">
             {imageDataURLs.length > 0 ? (
               imageDataURLs.map((imageDataURL, index) => (

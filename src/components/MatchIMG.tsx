@@ -1,13 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, FC } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-function MatchIMG({ picturePath, matchedId }) {
+interface MatchIMGProps {
+  picturePath: string;
+  matchedId: string;
+}
+
+const MatchIMG: FC<MatchIMGProps> = ({ picturePath, matchedId }) => {
   const navigate = useNavigate();
-  const [imageDataURL, setImageDataURL] = useState([]);
+  const [imageDataURL, setImageDataURL] = useState<string>("");
 
   useEffect(() => {
-    const fetchPictures = async (path) => {
+    const fetchPictures = async (path: string) => {
       try {
         const res = await axios.post(
           "http://wave.nodestarter.eu:4000/users/getPicture",
@@ -44,6 +49,6 @@ function MatchIMG({ picturePath, matchedId }) {
       />
     </div>
   );
-}
+};
 
 export default MatchIMG;

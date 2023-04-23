@@ -1,29 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, ChangeEvent } from "react";
 
-function DashboardGallery() {
+const DashboardGallery = () => {
   const [image1, setImage1] = useState("");
   const [image2, setImage2] = useState("");
   const [image3, setImage3] = useState("");
   const [image4, setImage4] = useState("");
 
-  const handleUpload1 = (e: { target: { files: any[] } }) => {
-    const file = e.target.files[0];
-    setImage1(URL.createObjectURL(file));
+  const handleUpload1 = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      const file = e.target.files[0];
+      setImage1(URL.createObjectURL(file));
+    }
   };
 
-  const handleUpload2 = (e: { target: { files: any[] } }) => {
-    const file = e.target.files[0];
-    setImage2(URL.createObjectURL(file));
+  const handleUpload2 = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      const file = e.target.files && e.target.files[0];
+      setImage2(URL.createObjectURL(file));
+    }
   };
 
-  const handleUpload3 = (e: { target: { files: any[] } }) => {
-    const file = e.target.files[0];
-    setImage3(URL.createObjectURL(file));
+  const handleUpload3 = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      const file = e.target.files[0];
+      setImage3(URL.createObjectURL(file));
+    }
   };
 
-  const handleUpload4 = (e: { target: { files: any[] } }) => {
-    const file = e.target.files[0];
-    setImage4(URL.createObjectURL(file));
+  const handleUpload4 = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      const file = e.target.files[0];
+      setImage4(URL.createObjectURL(file));
+    }
   };
 
   return (
@@ -92,6 +100,6 @@ function DashboardGallery() {
       </div>
     </div>
   );
-}
+};
 
 export default DashboardGallery;

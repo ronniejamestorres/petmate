@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState, useContext } from "react";
 import socket from "../socket";
 import CardsContext from "../contexts/CardsContext";
 import backgroundImage from "../images/petmate-background-01.svg";
@@ -6,15 +6,18 @@ import SendIcon from "@mui/icons-material/Send";
 import { useParams } from "react-router-dom";
 
 const ChatRoom = () => {
-  const username = useState(localStorage.getItem("username"));
-  const [room, setRoom] = useState("");
-  const [currentMessage, setCurrentMessage] = useState("");
-  const [messages, setMessages] = useState([]);
+  const [username, setUsername] = useState<string | null>(
+    localStorage.getItem("username")
+  );
+  const [room, setRoom] = useState<string>("");
+  const [currentMessage, setCurrentMessage] = useState<string>("");
+  const [messages, setMessages] = useState<
+    Array<{ username: string | null; message: string; time: string }>
+  >([]);
   const { users } = useContext(CardsContext);
   const { id } = useParams<{ id: string }>();
-  // console.log("matches: ", users && users[0].matches);
 
-  const joinRoom = (e) => {
+  const joinRoom = (e: FormEvent) => {
     e.preventDefault();
     if (username && room) {
       socket.emit("join_room", { username, room });
@@ -22,7 +25,7 @@ const ChatRoom = () => {
     }
   };
 
-  const sendMessage = async (e) => {
+  const sendMessage = async (e: FormEvent) => {
     e.preventDefault();
     if (currentMessage) {
       console.log("sending current message: ", currentMessage);
@@ -39,7 +42,11 @@ const ChatRoom = () => {
   };
 
   useEffect(() => {
-    const handleReceiveMessage = (data) => {
+    const handleReceiveMessage = (data: {
+      username: string | null;
+      message: string;
+      time: string;
+    }) => {
       setMessages((prevMessages) => [...prevMessages, data]);
       console.log("message received: ", data);
     };

@@ -17,14 +17,14 @@ import petsImage8 from "../images/pngegg16.png";
 const Dashboard = () => {
   const Navigate = useNavigate();
 
-  const [name, setName] = useState("");
-  const [animal, setAnimal] = useState("");
-  const [race, setRace] = useState("");
-  const [age, setAge] = useState("");
+  const [name, setName] = useState<string>("");
+  const [animal, setAnimal] = useState<string>("");
+  const [race, setRace] = useState<string>("");
+  const [age, setAge] = useState<number>(0);
   const [favoriteFoods, setFavoriteFoods] = useState<string[]>(["", "", ""]);
   const [interests, setInterests] = useState<string[]>(["", "", ""]);
-  const [description, setDescription] = useState("");
-  const [selectedFile, setSelectedFile] = useState(null);
+  const [description, setDescription] = useState<string>("");
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
   const [firstSubmitted, setFirtSubmitted] = useState(false);
   const [secondSubmitted, setSecondSubmitted] = useState(false);
@@ -33,7 +33,17 @@ const Dashboard = () => {
   const [fifthSubmitted, setFifthSubmitted] = useState(false);
   const [sixthSubmitted, setSixthSubmitted] = useState(false);
   const [seventhSubmitted, setSeventhSubmitted] = useState(false);
-  const [characteristics, setCharacteristics] = useState({
+
+  type Characteristics = {
+    animal: string;
+    race: string;
+    age: number;
+    weight: number;
+    interests: string[];
+    favoriteFoods: string[];
+    description: string[];
+  };
+  const [characteristics, setCharacteristics] = useState<Characteristics>({
     animal: "",
     race: "",
     age: 0,
@@ -65,12 +75,12 @@ const Dashboard = () => {
     setCharacteristics(newCharacteristics);
   };
   const handleAgeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    {
-      setAge(event.target.value);
-    }
+    const ageValue = parseInt(event.target.value, 10);
+    setAge(ageValue);
+
     const newCharacteristics = {
       ...characteristics,
-      age: event.target.value,
+      age: ageValue,
     };
     setCharacteristics(newCharacteristics);
   };
@@ -128,7 +138,7 @@ const Dashboard = () => {
         formData,
         {
           headers: {
-            "x-auth-token": localStorage.getItem("x-auth-token"),
+            "x-auth-token": localStorage.getItem("x-auth-token") ?? "",
             "Content-Type": "multipart/form-data",
           },
         }
@@ -221,7 +231,7 @@ const Dashboard = () => {
               className=" file:bg-beige2 file:hover:bg-grey file:rounded-full file:w-44 file:h-10 file:items-center file:mb-4 file:border-0"
               type="file"
               onChange={(e) => {
-                setSelectedFile(e.target.files[0]);
+                e.target.files && setSelectedFile(e.target.files[0]);
               }}
             />
             <button

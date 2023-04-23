@@ -4,13 +4,19 @@ import CardsContext from "../contexts/CardsContext";
 import NavbarMatch from "../components/NavbarMatch";
 import MatchIMG from "../components/MatchIMG";
 
+interface User {
+  _id: string;
+  pictures: string[];
+  matches: string[];
+}
+
 function Match() {
   const { users } = useContext(CardsContext);
   const loggedInId =
     users &&
-    users.find((user) => user._id === localStorage.getItem("loggedIn"));
-  const [picturesPaths, setpicturesPaths] = useState([]);
-  const [matchedIds, setMatchedIds] = useState("");
+    users.find((user: User) => user._id === localStorage.getItem("loggedIn"));
+  const [picturesPaths, setpicturesPaths] = useState<string[]>([]);
+  const [matchedIds, setMatchedIds] = useState<string[]>([]);
 
   useEffect(() => {
     const getMatchesPicturesPaths = () => {
@@ -18,7 +24,8 @@ function Match() {
       const matchesPicturesPaths =
         matches &&
         matches.map(
-          (match) => users.find((user) => user._id === match).pictures[0]
+          (match: string) =>
+            users.find((user: User) => user._id === match).pictures[0]
         );
 
       setpicturesPaths(matchesPicturesPaths);

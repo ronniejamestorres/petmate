@@ -8,18 +8,24 @@ import ImageDisplay from "../components/ImageDisplay";
 
 import DashboardCard from "../components/DashboardCard";
 
+interface User {
+  _id: string;
+  pictures: string[];
+}
+
 function DashboardTwo() {
   const { users } = useContext(CardsContext);
 
   const loggedInId =
     users &&
-    users.find((user) => user._id === localStorage.getItem("loggedIn"));
-  const [picturesPaths, setpicturesPaths] = useState([]);
+    users.find((user: User) => user._id === localStorage.getItem("loggedIn"));
+  const [picturesPaths, setpicturesPaths] = useState<string[]>([]);
 
   useEffect(() => {
     const getPicturesPaths = () => {
-      const picturesPaths = loggedInId && loggedInId.pictures;
-      setpicturesPaths(picturesPaths);
+      if (loggedInId) {
+        setpicturesPaths(loggedInId.pictures);
+      }
     };
     getPicturesPaths();
   }, [loggedInId]);
@@ -35,7 +41,7 @@ function DashboardTwo() {
       <div className=" flex items-center justify-center h-screen  ">
         <div className=" grid grid-cols-1 lg:grid-cols-2">
           <div className="  col-span-1 lg:col-span-1 bg-beige2  p-4 rounded-xl shadow-2xl">
-            <DashboardGallery picturesPaths={picturesPaths} />
+            <DashboardGallery />
           </div>
 
           <div className=" col-span-1 lg:col-span-1 bg-white  p-4 rounded-xl shadow-2xl">
