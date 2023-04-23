@@ -1,15 +1,25 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const UserCard = ({ user }) => {
+interface User {
+  _id: string;
+  username: string;
+  pictures: string[];
+}
+
+interface UserCardProps {
+  user: User;
+}
+
+const UserCard: React.FC<UserCardProps> = ({ user }) => {
   const [imageDataURL, setImageDataURL] = useState("");
   const navigate = useNavigate();
 
   //using the backend route for fetching the image
   useEffect(() => {
-    const fetchPictures = async (path) => {
+    const fetchPictures = async (path: string) => {
       try {
         const res = await axios.post(
           "http://wave.nodestarter.eu:4000/users/getPicture",

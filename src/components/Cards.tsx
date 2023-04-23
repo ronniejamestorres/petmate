@@ -9,6 +9,7 @@ interface User {
   _id: string;
   username: string;
   liking: string[]; // Assuming that the liking property is an array of strings
+  pictures: string[];
   // Add other properties as needed
 }
 
