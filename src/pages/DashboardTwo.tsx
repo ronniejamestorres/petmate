@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import CardsContext from "../contexts/CardsContext";
 
-import NavbarLogin from "../components/NavbarLogin";
+import NavbarMatch from "../components/NavbarMatch";
 import backgroundImage from "../images/petmate-background-01.svg";
 import DashboardGallery from "../components/DashboardGallery";
 import ImageDisplay from "../components/ImageDisplay";
@@ -36,7 +36,7 @@ function DashboardTwo() {
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <div>
-        <NavbarLogin />
+        <NavbarMatch />
       </div>
       <div className=" flex items-center justify-center h-screen  ">
         <div className=" grid grid-cols-1 lg:grid-cols-2">
